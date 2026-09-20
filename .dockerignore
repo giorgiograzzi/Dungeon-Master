@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.git/
+.env
+*.db
+.pytest_cache/
+tests/
+docs/riferimenti/
+README.md
+PROMPT.md
+DECISIONS.md

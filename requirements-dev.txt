@@ -1,0 +1,7 @@
+# Dipendenze extra per sviluppo/build: generazione asset (Pillow) e test.
+# In produzione l'immagine Docker NON installa questo file: gli asset PNG
+# sono generati una volta in uno stage di build separato (vedi Dockerfile).
+-r tools/requirements-dev.txt
+pytest==8.3.4
+pytest-asyncio==0.24.0
+httpx==0.28.1
