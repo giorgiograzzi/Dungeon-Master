@@ -18,8 +18,17 @@ export async function renderGame(container) {
     renderCampaignSetup(container);
     return;
   }
+  if (state.ended) {
+    await renderFinaleScreen(container);
+    return;
+  }
   if (state.mode === "combat") {
     await renderCombatScreen(container);
+    return;
+  }
+  const crossroad = await api.crossroads();
+  if (crossroad.at_crossroads) {
+    renderCrossroadsScreen(container, crossroad);
     return;
   }
   renderTurnScreen(container, state);
@@ -57,10 +66,21 @@ function renderCampaignSetup(container) {
   });
 }
 
+function _actsBar(currentAct) {
+  return `
+    <div class="acts-bar">
+      ${[1, 2, 3].map((n) => `<span class="act-dot ${n <= currentAct ? "done" : ""}">Atto ${n}</span>`).join("")}
+    </div>
+  `;
+}
+
 function renderTurnScreen(container, state) {
   container.innerHTML = `
     <h2>${state.title ?? "La tua avventura"}</h2>
+    ${_actsBar(state.current_act ?? 1)}
     <p class="hint">Obiettivo attuale: ${state.current_objective}</p>
+    <button id="diary-btn" class="secondary" type="button">📖 Diario</button>
+    <div id="diary-panel"></div>
     <div id="journal">
       ${state.recent_turns
         .map((t) => `<p><strong>Tu:</strong> ${t.action}</p><p>${t.narration}</p>`)
@@ -83,9 +103,126 @@ function renderTurnScreen(container, state) {
     });
   }
 
+  document.getElementById("diary-btn").addEventListener("click", () => toggleDiaryPanel());
   document.getElementById("submit-action").addEventListener("click", () => {
     const actionText = document.getElementById("action").value;
     submitAction(container, actionText);
+  });
+}
+
+async function toggleDiaryPanel() {
+  const panel = document.getElementById("diary-panel");
+  if (panel.dataset.open === "true") {
+    panel.innerHTML = "";
+    panel.dataset.open = "false";
+    return;
+  }
+  const diary = await api.diary();
+  panel.dataset.open = "true";
+  panel.innerHTML = `
+    <div class="card">
+      <h3>Quest principale</h3>
+      <p>${diary.main_quest.objective}</p>
+      ${
+        diary.side_quests.length
+          ? `<h3>Quest secondarie</h3>${diary.side_quests
+              .map((q) => `<p><strong>${q.hook}</strong> — ${q.status}<br><span class="hint">${q.hint}</span></p>`)
+              .join("")}`
+          : ""
+      }
+      ${diary.notes.length ? `<h3>Note</h3>${diary.notes.map((n) => `<p class="hint">${n}</p>`).join("")}` : ""}
+    </div>
+  `;
+}
+
+function renderCrossroadsScreen(container, crossroad) {
+  container.innerHTML = `
+    <h2>Un bivio nel tuo cammino</h2>
+    <p class="hint">Scegli come proseguire: la scelta cambia davvero la storia.</p>
+    <div id="routes">
+      ${crossroad.routes
+        .map(
+          (r) => `
+        <div class="card route-card" data-id="${r.id}">
+          <h3>${r.title}</h3>
+          <p>${r.promise}</p>
+          <p class="hint">Rischio: ${r.risk} · Stile: ${r.style}</p>
+        </div>`
+        )
+        .join("")}
+    </div>
+    <div id="crossroads-error"></div>
+  `;
+  container.querySelectorAll(".route-card").forEach((card) => {
+    card.addEventListener("click", async () => {
+      try {
+        const result = await api.chooseRoute(card.dataset.id);
+        if (result.level_up) {
+          await showDiceOverlay({
+            die: `d${result.level_up.hit_die_sides}`,
+            finalValue: result.level_up.roll,
+            label: `Livello ${result.level_up.new_level}! +${result.level_up.hp_gain} PF massimi`,
+          });
+        }
+        await renderGame(container);
+      } catch (err) {
+        document.getElementById("crossroads-error").innerHTML = `<p class="error">${err.message}</p>`;
+      }
+    });
+  });
+}
+
+async function renderFinaleScreen(container) {
+  const finale = await api.finale();
+  const s = finale.stats;
+  container.innerHTML = `
+    <h2>${finale.ending?.title ?? "Fine dell'avventura"}</h2>
+    <p>${finale.epilogue}</p>
+    <div class="sheet-grid">
+      <div class="stat-tile"><div class="value">${s.turns}</div><div class="label">Turni</div></div>
+      <div class="stat-tile"><div class="value">${s.rolls}</div><div class="label">Tiri</div></div>
+      <div class="stat-tile"><div class="value">${s.natural_20}</div><div class="label">20 naturali</div></div>
+      <div class="stat-tile"><div class="value">${s.natural_1}</div><div class="label">1 naturali</div></div>
+      <div class="stat-tile"><div class="value">${s.hp_lost}</div><div class="label">PF persi</div></div>
+      <div class="stat-tile"><div class="value">${s.items_used}</div><div class="label">Oggetti usati</div></div>
+    </div>
+    ${
+      finale.rewards_obtained.length
+        ? `<h3>Ricompense ottenute</h3>${finale.rewards_obtained
+            .map((r) => `<p class="hint">${r.reward?.effect ?? r.quest_id}</p>`)
+            .join("")}`
+        : ""
+    }
+    <button id="export-story-btn" class="secondary" type="button">Esporta come racconto</button>
+    <div id="story-export"></div>
+    <h3>Rigioca da un bivio</h3>
+    <p class="hint">Riparti da prima di una scelta per provare un percorso diverso.</p>
+    <button class="secondary rewind-btn" type="button" data-index="0">Rigioca dal 1° bivio</button>
+    <button class="secondary rewind-btn" type="button" data-index="1">Rigioca dal 2° bivio</button>
+    <div id="finale-error"></div>
+  `;
+  document.getElementById("export-story-btn").addEventListener("click", async (event) => {
+    event.target.disabled = true;
+    event.target.textContent = "Scrivo il racconto…";
+    try {
+      const { story_text } = await api.storyExport();
+      document.getElementById("story-export").innerHTML = `<p>${story_text}</p>`;
+    } catch (err) {
+      document.getElementById("finale-error").innerHTML = `<p class="error">${err.message}</p>`;
+    } finally {
+      event.target.disabled = false;
+      event.target.textContent = "Esporta come racconto";
+    }
+  });
+  container.querySelectorAll(".rewind-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      try {
+        await api.rewind(Number(btn.dataset.index));
+        await renderGame(container);
+      } catch (err) {
+        document.getElementById("finale-error").innerHTML = `<p class="error">${err.message}</p>`;
+      }
+    });
   });
 }
 

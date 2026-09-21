@@ -52,4 +52,11 @@ export const api = {
   combatWeaponSwap: (weapon_id) =>
     request("/api/game/combat/weapon-swap", { method: "POST", body: JSON.stringify({ weapon_id }) }),
   combatItemUse: (item) => request("/api/game/combat/item-use", { method: "POST", body: JSON.stringify({ item }) }),
+  diary: () => request("/api/game/diary"),
+  finale: () => request("/api/game/finale"),
+  storyExport: () => request("/api/game/story"),
+  rewind: (crossroad_index) => request("/api/game/rewind", { method: "POST", body: JSON.stringify({ crossroad_index }) }),
+  savesList: () => request("/api/game/saves"),
+  saveManual: (name) => request("/api/game/saves/manual", { method: "POST", body: JSON.stringify({ name }) }),
+  saveLoad: (slot) => request("/api/game/saves/load", { method: "POST", body: JSON.stringify({ slot }) }),
 };

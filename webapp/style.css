@@ -362,3 +362,28 @@ button.secondary {
   padding: 12px;
   margin-bottom: 12px;
 }
+
+.acts-bar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.act-dot {
+  flex: 1;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 4px 0;
+  border-radius: 6px;
+  background: var(--border);
+  color: var(--tg-theme-hint-color, #b8aed0);
+}
+
+.act-dot.done {
+  background: var(--accent);
+  color: #1a1408;
+}
+
+#diary-panel:not(:empty) {
+  margin-bottom: 12px;
+}
