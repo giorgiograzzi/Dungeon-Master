@@ -29,6 +29,18 @@ class ItemUseError(RuntimeError):
     pass
 
 
+def infer_use_cost(item_name: str) -> UseCost:
+    """Fallback quando l'oggetto non ha un `use_cost` esplicito nei dati SRD
+    (l'equipaggiamento generico non da combattimento non è stato estratto
+    con questo dettaglio in Fase 1). Verificato contro il testo dell'SRD:
+    "Bere una pozione [...] richiede un'azione bonus" (cap. Incantesimi,
+    "Usare una pozione"); ogni altro oggetto usa la generica "azione di
+    Utilizzo" (cap. Equipaggiamento avventura)."""
+    if "pozione" in item_name.lower():
+        return UseCost.BONUS_ACTION
+    return UseCost.ACTION
+
+
 def use_item(economy: ActionEconomy, cost: UseCost) -> None:
     """Consuma la risorsa dell'economia delle azioni per usare un oggetto.
 

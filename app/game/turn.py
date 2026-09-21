@@ -7,6 +7,7 @@ import datetime
 
 from app.ai.client import AIClient
 from app.ai.tools import NARRATE_OUTCOME_TOOL, REQUEST_CHECK_TOOL
+from app.game.combat import current_combatant, run_monster_turns_until_player, start_combat
 from app.game.effects import apply_effects
 from rules.dice import roll_d20
 from rules.difficulty import check_result, dc_for_band
@@ -88,6 +89,14 @@ async def play_turn(
 
     outcome = await ai_client.call_tool(model=model, system=system_prompt, messages=messages, tool=NARRATE_OUTCOME_TOOL)
     effects_applied = apply_effects(character_data, save_data, outcome.get("effects", []))
+
+    monster_ids = save_data.pop("_pending_combat_monsters", None)
+    if monster_ids:
+        start_combat(save_data, character_data, character_sheet, monster_ids)
+        # Se un mostro vince l'iniziativa, il suo turno si risolve subito:
+        # altrimenti il giocatore non avrebbe nulla da fare per proseguire.
+        if not current_combatant(save_data)["is_player"]:
+            run_monster_turns_until_player(save_data, character_data)
 
     save_data["turn_count"] = save_data.get("turn_count", 0) + 1
     save_data["daily_turn_count"] = save_data.get("daily_turn_count", 0) + 1

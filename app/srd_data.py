@@ -60,3 +60,8 @@ def conditions() -> dict[str, dict]:
 @lru_cache
 def spells() -> dict[str, dict]:
     return {s["id"]: s for s in _load("spells")}
+
+
+@lru_cache
+def monsters() -> dict[str, dict]:
+    return {m["id"]: m for m in _load("monsters")}

@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 
 from rules.action_economy import ActionEconomy
-from rules.items import ItemUseError, UseCost, use_item
+from rules.items import ItemUseError, UseCost, infer_use_cost, use_item
 
 
 def test_use_item_action_cost_consumes_action():
@@ -37,3 +37,13 @@ def test_use_item_blocked_when_resource_exhausted():
     use_item(econ, UseCost.FREE)
     with pytest.raises(ItemUseError):
         use_item(econ, UseCost.FREE)
+
+
+def test_infer_use_cost_potion_is_bonus_action():
+    assert infer_use_cost("Pozione di cura") == UseCost.BONUS_ACTION
+    assert infer_use_cost("pozione della forza dei giganti") == UseCost.BONUS_ACTION
+
+
+def test_infer_use_cost_generic_item_is_action():
+    assert infer_use_cost("Torcia") == UseCost.ACTION
+    assert infer_use_cost("Rampino") == UseCost.ACTION

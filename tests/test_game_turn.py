@@ -90,6 +90,30 @@ async def test_daily_cap_enforced(setup):
         )
 
 
+async def test_start_combat_effect_resolves_monster_turn_first_if_it_wins_initiative(setup, monkeypatch):
+    char, sheet, save = setup
+
+    class AmbushAIClient(FakeAIClient):
+        def _fake_narrate_outcome(self, messages):
+            return {"narration": "Un goblin ti tende un'imboscata.", "options": [], "effects": [{"type": "start_combat", "value": ["goblin_guerriero"]}]}
+
+    # Il giocatore tira basso, il goblin alto: l'iniziativa del goblin vince
+    # (start_combat tira prima per il giocatore, poi per ogni mostro).
+    rolls = iter([1, 20])
+    monkeypatch.setattr("rules.combat.roll_die", lambda sides: next(rolls))
+    hp_before = char["hp_current"]
+    await play_turn(
+        character_sheet=sheet, character_data=char, save_data=save,
+        action_text="avanzo nel corridoio", turn_id="ambush", ai_client=AmbushAIClient(),
+        model="fake", system_prompt="", daily_cap=50,
+    )
+    assert save["mode"] == "combat"
+    # Il turno del goblin (iniziativa piu alta) e gia stato risolto: tocca al
+    # giocatore, che altrimenti non avrebbe nessuna azione da compiere.
+    assert save["combat"]["combatants"][save["combat"]["current_turn_index"]]["is_player"] is True
+    assert char["hp_current"] <= hp_before  # il goblin ha potuto attaccare per primo
+
+
 async def test_effects_are_applied_to_character(setup):
     char, sheet, save = setup
 

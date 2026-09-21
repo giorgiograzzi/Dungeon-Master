@@ -61,13 +61,23 @@ def test_fact_add_deduplicated():
     assert save["facts"] == ["il ponte è crollato"]
 
 
-def test_combat_toggle():
+def test_start_combat_stashes_monster_ids_for_the_caller():
+    # L'effetto segna solo l'intenzione: il vero avvio (iniziativa, stat
+    # block) lo fa app.game.combat.start_combat, che ha bisogno della scheda.
     char = _char()
     save = new_game_save_data()
-    apply_effects(char, save, [{"type": "start_combat"}])
-    assert save["mode"] == "combat"
+    apply_effects(char, save, [{"type": "start_combat", "value": ["goblin_guerriero"]}])
+    assert save["_pending_combat_monsters"] == ["goblin_guerriero"]
+
+
+def test_end_combat_resets_mode_and_state():
+    char = _char()
+    save = new_game_save_data()
+    save["mode"] = "combat"
+    save["combat"] = {"round": 2}
     apply_effects(char, save, [{"type": "end_combat"}])
     assert save["mode"] == "exploration"
+    assert save["combat"] is None
 
 
 def test_beat_progress_and_gate_solved():

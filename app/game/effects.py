@@ -110,12 +110,17 @@ def _quest_update(character_data: dict, save_data: dict, effect: dict) -> str:
 
 
 def _start_combat(character_data: dict, save_data: dict, effect: dict) -> str:
-    save_data["mode"] = "combat"
-    return "Combattimento iniziato"
+    # L'avvio vero e proprio (iniziativa, stat block dei mostri) richiede la
+    # scheda del personaggio: lo fa app.game.combat.start_combat, chiamato
+    # dal chiamante di apply_effects quando trova questo marcatore (§8).
+    monster_ids = effect.get("value") or []
+    save_data["_pending_combat_monsters"] = monster_ids if isinstance(monster_ids, list) else [monster_ids]
+    return f"Combattimento in arrivo: {monster_ids}"
 
 
 def _end_combat(character_data: dict, save_data: dict, effect: dict) -> str:
     save_data["mode"] = "exploration"
+    save_data["combat"] = None
     return "Combattimento terminato"
 
 
