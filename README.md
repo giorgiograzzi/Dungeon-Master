@@ -22,6 +22,7 @@ cp .env.example .env   # poi compila almeno BOT_TOKEN e WEBAPP_URL
 
 python tools/generate_assets.py    # genera dadi, icone, classi, scene, percorsi
 python tools/npc_portraits.py      # genera i 25 ritratti dei PNG e i cataloghi
+python tools/extract_srd.py        # estrae i dati SRD (classi, specie, incantesimi...) in data/srd/
 
 uvicorn app.main:app --reload
 ```
@@ -40,7 +41,15 @@ python tools/set_webhook.py
 pytest
 ```
 
-Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto).
+Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto), estrazione dei dati SRD (`tools/extract_srd.py`, con valori noti verificati) e motore di regole (`rules/`): dadi con `secrets`, vantaggio/svantaggio e annullamento, tabella CD, modificatori e bonus di competenza, economia delle azioni, PF temporanei, costo d'uso oggetti, cambio arma, condizioni SRD, riposo.
+
+## Dati SRD (`data/srd/`)
+
+Estratti da `docs/srd/IT_SRD_CC_v5.2.1.pdf` (SRD 5.2.1, già in italiano) con `tools/extract_srd.py`, script ripetibile: si può rilanciare ogni volta che il PDF cambia, sovrascrive solo i JSON. Copre: specie (9), background (4), classi (12, con tabella dei privilegi e sottoclasse), talenti (17), condizioni (15), armi (37), armature (13), incantesimi (339, tutti i livelli — il motore di regole ne usa 0–2 in questa fase), mostri (273 schede con CA/PF/caratteristiche/attacchi). Limiti noti e scelte di scope in [`DECISIONS.md`](DECISIONS.md).
+
+## Motore di regole (`rules/`)
+
+Modulo Python deterministico e testato (§0.1: "il codice decide, l'AI racconta"): `dice.py` (tiri con `secrets`, vantaggio/svantaggio), `difficulty.py` (tabella CD), `ability.py` (modificatori, bonus di competenza), `action_economy.py` (Azione/Bonus/Reazione/Movimento/Interazione libera), `hit_points.py` (PF e PF temporanei), `items.py` (costo d'uso oggetti), `weapon.py` (cambio arma), `conditions.py` (le 15 condizioni SRD), `rest.py` (riposo breve/lungo). Le capacità di classe non ancora implementate sono elencate in [`TODO_FEATURES.md`](TODO_FEATURES.md).
 
 ## Variabili d'ambiente
 
@@ -57,9 +66,11 @@ Vedi [`.env.example`](.env.example): ogni riga è commentata. Obbligatorie per u
 
 ```
 app/               backend FastAPI (config, DB, sicurezza, bot Telegram, API)
+rules/             motore di regole deterministico (dadi, CD, azioni, PF, condizioni...)
 webapp/            Mini App (HTML/CSS/JS) + assets/ generati (non versionati)
-tools/             generazione asset, ritratti PNG, impostazione webhook
-docs/srd/          PDF dell'SRD 5.2.1 (da aggiungere nella Fase 1)
+tools/             generazione asset, ritratti PNG, estrazione SRD, impostazione webhook
+data/srd/          dati SRD estratti in JSON (classi, specie, incantesimi, mostri...)
+docs/srd/          PDF dell'SRD 5.2.1 (italiano)
 docs/riferimenti/  esempi dello stile grafico atteso
 tests/             pytest
 ```
@@ -67,7 +78,7 @@ tests/             pytest
 ## Fasi di lavoro
 
 0. ✅ Scaffold, config, DB, auth `initData`, bot `/start`/`/gioca`/`/aiuto`, deploy "hello", asset e `/galleria`
-1. ⏳ Dati SRD + rules engine
+1. ✅ Dati SRD + rules engine
 2. ⏳ Creazione personaggio
 3. ⏳ Narratore AI, piano di campagna, turni, dadi animati, salvataggi
 4. ⏳ Combattimento

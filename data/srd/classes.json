@@ -1,0 +1,1920 @@
+[
+  {
+    "id": "barbaro",
+    "name_it": "Barbaro",
+    "primary_abilities": "Forza",
+    "hit_die": "D12 per ogni livello da barbaro",
+    "saving_throw_proficiencies": "Forza e Costituzione",
+    "skill_proficiencies": "Due a scelta tra: Addestrare Animali, Atletica, Intimi - dire, Natura, Percezione o Sopravvivenza",
+    "weapon_proficiencies": "Armi semplici e da guerra",
+    "armor_proficiencies": "Armature leggere e medie; scudi",
+    "starting_equipment": "A scelta tra A e B: (A) Un'ascia bipenne, 4 asce, una dotazione da esploratore e 15 mo; o (B) 75 mo",
+    "spellcasting": false,
+    "subclass_name": "Cammino del berserker",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Può infondere in se stesso un potere primordiale chiamato \"ira\", una forza che conferisce una potenza e una resistenza straordinarie. Può entrare in ira come azione bonus se non sta indossando un'armatura pesante. Il barbaro può entrare in ira il numero di volte indicato per il proprio livello da barbaro nella"
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Difesa senza armatura",
+          "Ira",
+          "Padronanza d'armi"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Attacco irruento",
+          "Percezione del pericolo"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Conoscenza primordiale",
+          "sottoclasse del barbaro"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Attacco extra",
+          "Movimento veloce"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Balzo istintivo",
+          "Istinto ferino"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Colpo brutale"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Ira implacabile"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Colpo brutale migliorato"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Ira persistente"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Colpo brutale migliorato"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Potenza indomabile"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Campione primordiale"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bardo",
+    "name_it": "Bardo",
+    "primary_abilities": "Carisma",
+    "hit_die": "D8 per ogni livello da bardo",
+    "saving_throw_proficiencies": "Destrezza e Carisma",
+    "skill_proficiencies": "Tre abilità a scelta (vedi \"Come si gioca\")",
+    "weapon_proficiencies": "Armi semplici Competenze negli strumenti Tre strumenti musicali a scelta (vedi \"Equipaggiamento\")",
+    "armor_proficiencies": "Armature leggere",
+    "starting_equipment": "A scelta tra A e B: (A) Un'arma- tura di cuoio, 2 pugnali, uno strumento musicale (a scelta), una dotazione da intratteni - tore e 19 mo; o (B) 90 mo",
+    "spellcasting": true,
+    "subclass_name": "Collegio della Sapienza",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Un bardo può ispirare gli altri in maniera sopran - naturale tramite le parole, la musica o la danza. Questa ispirazione è rappresentata dal dado di Ispirazione bardica, un d6."
+      },
+      {
+        "name": "Utilizzare l'Ispirazione bardica",
+        "text": "Come azione bonus, il bardo può ispirare un'altra creatura entro 18 metri da sé che può vederlo o sentirlo. Quella creatura ottiene uno dei suoi dadi di Ispirazione bardica. Una creatura può possedere un solo dado di Ispirazione bardica alla volta. Una volta entro l'ora successiva, quando fallisce una prova con d20, la creatura può tirare il dado di Ispirazione bardica e aggiungere il risultato al d20, trasformando potenzialmente il fallimento in un successo. Un dado di Ispirazione bardica viene speso quando viene tirato."
+      },
+      {
+        "name": "Numero di utilizzi",
+        "text": "Il bardo può conferire un dado di Ispirazione bardica un numero di volte pari al valore del suo modificatore di Carisma (minimo di una volta) e recuperare tutti gli utilizzi spesi quando completa un riposo lungo."
+      },
+      {
+        "name": "Ai livelli superiori",
+        "text": "Il dado di Ispirazione bardica cambia quando si raggiungono determinati livelli da bardo, come indicato nella colonna Dado bardico della tabella Privilegi del bardo. Il dado diventa un d8 al 5º livello, un d10 al 10º livello e un d12 al 15º livello."
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Incantesimi",
+          "Ispirazione"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Maestria",
+          "Factotum D6 2 5 3 — — — — — — — —"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del bardo D6 2 6 4 2 — — — — — — —"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Fonte di ispirazione D8 3 9 4 3 2 — — — — — —"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Controfascino D8 3 11 4 3 3 1 — — — — —"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Maestria D8 3 14 4 3 3 3 1 — — — —"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Segreti magici D10 4 15 4 3 3 3 2 — — — —"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Ispirazione superiore D12"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico D12"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Parole della creazione D12"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chierico",
+    "name_it": "Chierico",
+    "primary_abilities": "Saggezza",
+    "hit_die": "D8 per ogni livello da chierico",
+    "saving_throw_proficiencies": "Saggezza e Carisma",
+    "skill_proficiencies": "Due a scelta tra: Intuizione, Medicina, Persuasione, Reli - gione o Storia",
+    "weapon_proficiencies": "Armi semplici",
+    "armor_proficiencies": "Armature leggere e medie; scudi",
+    "starting_equipment": "A scelta tra A e B: (A) Un giaco di maglia, uno scudo, una mazza, un simbolo sacro, una dotazione da sacerdote e 7 mo; o (B) 110 mo",
+    "spellcasting": true,
+    "subclass_name": "Dominio della Vita",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Il chierico impara a lanciare incantesimi attraverso la preghiera e la meditazione. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le informazioni sottostanti spiegano come applicarle agli incantesimi del chierico, elen - cati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
+      },
+      {
+        "name": "Trucchetti",
+        "text": "Il chierico conosce tre trucchetti a scelta tratti dalla lista degli incantesimi da chierico. Sono consigliati guida, fiamma sacra e taumaturgia. Ogni volta che il personaggio ottiene un livello da chierico, può sostituire uno dei suoi trucchetti con un altro trucchetto a scelta dalla lista degli incante - simi da chierico. Quando il personaggio raggiunge il 4º e il 10º livello da chierico, impara un altro trucchetto a scelta dalla lista degli incantesimi da chierico, come indicato nella colonna Trucchetti della tabella"
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Incantesimi",
+          "Ordine"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Incanalare divinità 2 3 5 3 — — — — — — — —"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del chierico 2 3 6 4 2 — — — — — — —"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Bruciare i non morti 2 4 9 4 3 2 — — — — — —"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Colpi benedetti 3 4 11 4 3 3 1 — — — — —"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Intervento divino 3 5 15 4 3 3 3 2 — — — —"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Colpi benedetti migliorati 3 5 17 4 3 3 3 2 1 1 — —"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Intervento divino"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "druido",
+    "name_it": "Druido",
+    "primary_abilities": "Saggezza",
+    "hit_die": "D8 per ogni livello da druido",
+    "saving_throw_proficiencies": "Intelligenza e Saggezza",
+    "skill_proficiencies": "Due a scelta tra: Addestrare animali, Arcano, Intuizione, Medicina, Natura, Percezione, Religione o Sopravvivenza",
+    "weapon_proficiencies": "Armi semplici Competenze negli strumenti Borsa da erborista",
+    "armor_proficiencies": "Armature leggere e scudi",
+    "starting_equipment": "A scelta tra A e B: (A) Un'armatura di cuoio, uno scudo, un falcetto, focus druidico (bastone ferrato), una dotazione da esploratore, una borsa da erborista e 9 mo; o (B) 50 mo",
+    "spellcasting": true,
+    "subclass_name": "Circolo della Terra",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Il druido ha imparato a lanciare incantesimi attraverso lo studio delle forze mistiche della natura. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le infor - mazioni sottostanti spiegano come applicarle agli incantesimi del druido, elencati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
+      },
+      {
+        "name": "Trucchetti",
+        "text": "Un druido conosce due trucchetti a scelta tratti dalla lista degli incantesimi da druido. Sono consigliati artificio druidico e produrre fiamma. Ogni volta che il personaggio ottiene un livello da druido, può sostituire uno dei suoi trucchetti con un altro trucchetto a scelta dalla lista degli incantesimi da druido. Quando il personaggio raggiunge il 4º e il 10º livello da druido, impara un altro trucchetto a scelta dalla lista degli incantesimi da druido, come indicato nella colonna Trucchetti della tabella"
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Druidico",
+          "Incantesimi"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Compagno selvatico"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del druido 2 2 6 4 2 — — — — — — —"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Rinascita selvatica 2 3 9 4 3 2 — — — — — —"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della sottoclasse 3 3 10 4 3 3 — — — — — —"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Furia elementale 3 3 11 4 3 3 1 — — — — —"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse 3 4 15 4 3 3 3 2 — — — —"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Furia elementale"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Incantesimi bestiali"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Arcidruido"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Indomabile (un utilizzo)",
+          "Signore delle tattiche"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Due attacchi extra"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Attacchi studiati",
+          "Indomabile (due utilizzi)"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Azione impetuosa (due utilizzi)",
+          "Indomabile (tre utilizzi)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "guerriero",
+    "name_it": "Guerriero",
+    "primary_abilities": "Forza o Destrezza",
+    "hit_die": "D10 per ogni livello da guerriero",
+    "saving_throw_proficiencies": "Forza e Costituzione",
+    "skill_proficiencies": "Due a scelta tra: Acrobazia, Addestrare animali, Atletica, Intimidire, Intuizione, Perce - zione, Persuasione, Sopravvi - venza o Storia",
+    "weapon_proficiencies": "Armi semplici e da guerra",
+    "armor_proficiencies": "Armature leggere, medie e pesanti; scudi",
+    "starting_equipment": "A scelta tra, B e C: (A) Una cotta di maglia, uno spadone, un mazzafrusto, 8 giavellotti, una dotazione da avventuriero e 4 mo; o (B) un'armatura di cuoio borchiato, una scimi - tarra, una spada corta, un arco lungo, 20 frecce, una faretra, una dotazione da avventuriero e 11 mo; o (C) 155 mo",
+    "spellcasting": false,
+    "subclass_name": "Campione",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Il guerriero ha affinato le sue doti marziali e ottiene un talento Stile di combattimento a scelta (vedi capitolo \"Talenti\"). È consigliata la Difesa. Ogni volta che il personaggio ottiene un livello da guerriero, può sostituire il talento scelto con un altro talento Stile di combattimento."
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Padronanza d'armi",
+          "Recuperare energie e Stile di combattimento"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Azione impetuosa (un utilizzo)",
+          "Mente tattica"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del guerriero"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Attacco extra",
+          "Spostamento tattico"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Indomabile (un utilizzo)",
+          "Signore delle tattiche"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Due attacchi extra"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Attacchi studiati",
+          "Indomabile (due utilizzi)"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di caratteristica"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Azione impetuosa (due utilizzi)",
+          "Indomabile (tre utilizzi)"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Tre attacchi extra"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ladro",
+    "name_it": "Ladro",
+    "primary_abilities": "Destrezza",
+    "hit_die": "D8 per ogni livello da ladro",
+    "saving_throw_proficiencies": "Destrezza e Intelligenza",
+    "skill_proficiencies": "Quattro a scelta tra: Acrobazia, Atletica, Furtività, Indagare, Inganno, Intimidire, Intuizione, Percezione, Persuasione o Rapidità di mano",
+    "weapon_proficiencies": "Armi semplici e armi da guerra con la proprietà accurata o leggera Competenze negli strumenti Arnesi da scasso",
+    "armor_proficiencies": "Armature leggere",
+    "starting_equipment": "A scelta tra A e B: (A) armatura di cuoio, 2 pugnali, spada corta, arco corto, 20 frecce, faretra, arnesi da scasso, dota - zione da scassinatore e 8 mo; o (B) 100 mo",
+    "spellcasting": false,
+    "subclass_name": "Furfante",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Il ladro ottiene maestria in due abilità a scelta in cui ha competenza. Se il personaggio ha competenza in Rapidità di mano e Furtività, è consigliabile scegliere queste due. Al livello 6, il ladro ottiene maestria in altre due competenze nelle abilità a sua scelta."
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Maestria",
+          "Attacco furtivo",
+          "Gergo ladresco",
+          "Padronanza d'armi 1d6"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Azione scaltra 1d6"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del ladro",
+          "Mira ferma 2d6"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di caratteristica 2d6"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Colpo astuto",
+          "Schivata prodigiosa 3d6"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Maestria 3d6"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Elusione",
+          "Dote affidabile 4d6"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di caratteristica 4d6"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse 5d6"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di caratteristica 5d6"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Colpo astuto migliorato 6d6"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di caratteristica 6d6"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della sottoclasse 7d6"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Colpi infidi 7d6"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Mente sfuggente 8d6"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di caratteristica 8d6"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Privilegio della sottoclasse 9d6"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Inafferrabile 9d6"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico 10d6"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Pietra della buona fortuna 10d6"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mago",
+    "name_it": "Mago",
+    "primary_abilities": "Intelligenza",
+    "hit_die": "D6 per ogni livello da mago",
+    "saving_throw_proficiencies": "Intelligenza e Saggezza",
+    "skill_proficiencies": "Due a scelta tra: Arcano, Indagare, Intuizione, Medicina, Natura, Religione o Storia",
+    "weapon_proficiencies": "Armi semplici",
+    "armor_proficiencies": "Nessuno",
+    "starting_equipment": "A scelta tra A e B: (A) 2 pugnali, focus arcano (bastone ferrato), veste, libro degli incantesimi, dotazione da studioso e 5 mo; o (B) 55 mo",
+    "spellcasting": true,
+    "subclass_name": "Invocatore",
+    "subclass_level": 3,
+    "level1_features": [],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Incantesimi",
+          "Adepto dei"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Studioso 3 5 3 — — — — — — — —"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del mago 3 6 4 2 — — — — — — —"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Memorizzare incantesimi 4 9 4 3 2 — — — — — —"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della sottoclasse 4 10 4 3 3 — — — — — —"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse 5 15 4 3 3 3 2 — — — —"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della sottoclasse 5 18 4 3 3 3 2 1 1 — —"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Maestria negli incantesimi"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Incantesimi personali"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Elusione 1d8 7 +4",
+          "5 m"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Movimento acrobatico 1d8 9 +4",
+          "5 m"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse 1d10 11 +6 m"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Deviare energia 1d10 13 +6 m"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Concentrazione perfetta 1d10 15 +7",
+          "5 m"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Privilegio della sottoclasse 1d12 17 +7",
+          "5 m"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "monaco",
+    "name_it": "Monaco",
+    "primary_abilities": "Destrezza e Saggezza",
+    "hit_die": "D8 per ogni livello da monaco",
+    "saving_throw_proficiencies": "Forza e Destrezza",
+    "skill_proficiencies": "Due a scelta tra: Acrobazia, Atletica, Furtività, Intuizione, Religione o Storia",
+    "weapon_proficiencies": "Armi semplici e armi da guerra con la proprietà leggera Competenze negli strumenti Un tipo di strumento da artigiano o di strumento musicale a scelta (vedi \"Equipaggiamento\")",
+    "armor_proficiencies": "Nessuno",
+    "starting_equipment": "A scelta tra A e B: (A) Una lancia, 5 pugnali, uno strumento da artigiano o uno strumento musi- cale scelto per la competenza negli strumenti sopraindicata, una dotazione da esploratore e 11 mo; o (B) 50 mo",
+    "spellcasting": false,
+    "subclass_name": "Guerriero della Mano Aperta",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Grazie alla sua perizia nelle arti marziali, un monaco padroneggia stili di combattimento che fanno uso di colpi senz'armi e delle seguenti armi da monaco: • Armi da mischia semplici • Armi da mischia da guerra con la proprietà leggera"
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Arti marziali",
+          "Difesa senza armatura 1d6 — —"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Concentrazione da monaco",
+          "Metabolismo straordi -"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Devia attacchi",
+          "sottoclasse del monaco 1d6 3 +3 m"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di caratteristica",
+          "Caduta lenta 1d6 4 +3 m"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Attacco extra",
+          "Colpo stordente 1d8 5 +3 m"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Colpi potenziati",
+          "privilegio della sottoclasse 1d8 6 +4",
+          "5 m"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Elusione 1d8 7 +4",
+          "5 m"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di caratteristica 1d8 8 +4",
+          "5 m"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Movimento acrobatico 1d8 9 +4",
+          "5 m"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Autorigenerazione",
+          "Concentrazione superiore 1d8 10 +6 m"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse 1d10 11 +6 m"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di caratteristica 1d10 12 +6 m"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Deviare energia 1d10 13 +6 m"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Esperto di sopravvivenza disciplinato 1d10 14 +7",
+          "5 m"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Concentrazione perfetta 1d10 15 +7",
+          "5 m"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di caratteristica 1d10 16 +7",
+          "5 m"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Privilegio della sottoclasse 1d12 17 +7",
+          "5 m"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Difesa superiore 1d12 18 +9 m"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico 1d12 19 +9 m"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Corpo e mente 1d12 20 +9 m"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paladino",
+    "name_it": "Paladino",
+    "primary_abilities": "Forza e Carisma",
+    "hit_die": "D10 per ogni livello da paladino",
+    "saving_throw_proficiencies": "Saggezza e Carisma",
+    "skill_proficiencies": "Due a scelta tra: Atletica, Inti - midire, Intuizione, Medicina, Persuasione o Religione",
+    "weapon_proficiencies": "Armi semplici e da guerra",
+    "armor_proficiencies": "Armature leggere, medie e pesanti; scudi",
+    "starting_equipment": "A scelta tra A e B: (A) cotta di maglia, scudo, spada lunga, 6 giavellotti, simbolo sacro, dotazione da sacerdote e 9 mo; o (B) 150 mo",
+    "spellcasting": true,
+    "subclass_name": "Giuramento di devozione",
+    "subclass_level": 3,
+    "level1_features": [],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Imposizione delle mani",
+          "Incantesimi"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Stile di combattimento",
+          "Punizione del"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Incanalare divinità",
+          "sottoclasse del"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di caratteristica 2 5 3 — — — —"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Attacco extra",
+          "Fido destriero 2 6 4 2 — — —"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aura di protezione 2 6 4 2 — — —"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della sottoclasse 2 7 4 3 — — —"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di caratteristica 2 7 4 3 — — —"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Abiurare nemici 2 9 4 3 2 — —"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aura di coraggio 2 9 4 3 2 — —"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Colpi radiosi 3 10 4 3 3 — —"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di caratteristica 3 10 4 3 3 — —"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Tocco rigenerante 3 11 4 3 3 1 —"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della sottoclasse 3 12 4 3 3 2 —"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di caratteristica 3 12 4 3 3 2 —"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Ampliamento dell'aura"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Cacciatore implacabile 5 11 4 3 3 1 —"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Precisione del cacciatore"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ranger",
+    "name_it": "Ranger",
+    "primary_abilities": "Destrezza e Saggezza",
+    "hit_die": "D10 per ogni livello da ranger",
+    "saving_throw_proficiencies": "Forza e Destrezza",
+    "skill_proficiencies": "Tre a scelta tra: Addestrare Animali, Atletica, Furtività, Indagare, Intuizione, Natura, Percezione o Sopravvivenza",
+    "weapon_proficiencies": "Armi semplici e da guerra",
+    "armor_proficiencies": "Armature leggere e medie; scudi",
+    "starting_equipment": "A scelta tra A e B: (A) armatura di cuoio borchiato, scimitarra, spada corta, arco lungo, 20 frecce, faretra, focus druidico (rametto di vischio), dotazione da esploratore e 7 mo; o (B) 150 mo",
+    "spellcasting": true,
+    "subclass_name": "Cacciatore",
+    "subclass_level": 3,
+    "level1_features": [],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Incantesimi",
+          "Nemico prescelto",
+          "Padro -"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Esploratore esperto",
+          "Stile di"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del ranger 2 4 3 — — — —"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di caratteristica 2 5 3 — — — —"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Attacco extra 3 6 4 2 — — —"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Girovago 3 6 4 2 — — —"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della sottoclasse 3 7 4 3 — — —"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di caratteristica 3 7 4 3 — — —"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Maestria 4 9 4 3 2 — —"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Instancabile 4 9 4 3 2 — —"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse 4 10 4 3 3 — —"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di caratteristica 4 10 4 3 3 — —"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Cacciatore implacabile 5 11 4 3 3 1 —"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Velo della natura 5 11 4 3 3 1 —"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della sottoclasse 5 12 4 3 3 2 —"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di caratteristica 5 12 4 3 3 2 —"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Precisione del cacciatore"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Sensi ferini"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Sterminatore di nemici"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stregone",
+    "name_it": "Stregone",
+    "primary_abilities": "Carisma",
+    "hit_die": "D6 per ogni livello da stregone",
+    "saving_throw_proficiencies": "Costituzione e Carisma",
+    "skill_proficiencies": "Due a scelta tra: Arcano, Inganno, Intimidire, Intuizione, Persuasione o Religione",
+    "weapon_proficiencies": "Armi semplici",
+    "armor_proficiencies": "Nessuno",
+    "starting_equipment": "A scelta tra A e B: (A) lancia, 2 pugnali, focus arcano (cristallo), dotazione da avven - turiero e 28 mo; o (B) 50 mo",
+    "spellcasting": true,
+    "subclass_name": "Stregoneria draconica",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Attingendo alla propria magia innata, lo stregone è in grado di lanciare incantesimi. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le informazioni sottostanti spiegano come applicare tali regole agli incantesimi da stre - gone, elencati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
+      },
+      {
+        "name": "Trucchetti",
+        "text": "Il personaggio conosce quattro trucchetti da stregone a scelta. Sono consigliati luce, prestidigitazione, stretta folgorante  e stregoneria esplosiva. Ogni volta che il personaggio ottiene un livello da stregone, può sostituire uno dei trucchetti di questo privilegio con un altro trucchetto a scelta. Dopo aver raggiunto il 4º e il 10º livello da stre - gone, il personaggio apprende un altro trucchetto a scelta, come mostrato nella colonna Trucchetti della tabella Privilegi dello stregone."
+      },
+      {
+        "name": "Slot incantesimo",
+        "text": "La tabella Privilegi dello stregone mostra gli slot incantesimo disponibili per i propri incantesimi di 1º livello o superiore. Tutti gli slot incantesimo consumati vengono ripristinati una volta completato un riposo lungo. Incantesimi preparati di 1º livello o superiore. Con questo privilegio, il personaggio prepara una lista di incantesimi di 1º livello o superiore che può lanciare. Per iniziare, sceglie due incantesimi da stregone di 1º livello. Sono consigliati mani brucianti e individuazione del magico. Il numero di incantesimi nella lista aumenta man mano che il personaggio ottiene livelli da stregone, come mostrato nella colonna Incantesimi preparati della tabella Privilegi dello stregone. Ogni volta che il numero cresce, lo stregone deve scegliere altri incantesimi finché il numero sulla lista non comba - cia con quello mostrato nella tabella Privilegi dello stregone. Gli incantesimi scelti devono essere di un livello di cui possiede degli slot incantesimo. Per esempio, nel caso di uno stregone di 3º livello, la sua lista di incantesimi preparati può includere sei incantesimi da stregone di 1º e 2º livello in qualsiasi combinazione. Se un altro privilegio dello stregone gli fornisce incantesimi che sono sempre preparati, questi non contano ai fini del numero di incantesimi preparabili con questo privilegio. Tuttavia, valgono comunque come incantesimi da stregone."
+      },
+      {
+        "name": "Cambiare gli incantesimi preparati",
+        "text": "Quando completa un riposo lungo, lo stregone può sostituire un incantesimo sulla propria lista con un altro incantesimo da stregone di cui possiede degli slot."
+      },
+      {
+        "name": "Caratteristica da incantatore",
+        "text": "Carisma è la caratteristica da incantatore per gli incantesimi da stregone."
+      },
+      {
+        "name": "Focus da incantatore",
+        "text": "Uno stregone può usare un focus arcano come focus da incantatore per i suoi incantesimi da stregone."
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Incantesimi"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Fonte di magia"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse dello"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Ripristino"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Stregoneria"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Metamagia 10 6 15 4 3 3 3 2 — — — —"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Metamagia"
+        ]
+      },
+      {
+        "level": 18,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Privilegio della"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Apoteosi arcana"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "warlock",
+    "name_it": "Warlock",
+    "primary_abilities": "Carisma",
+    "hit_die": "D8 per ogni livello da warlock",
+    "saving_throw_proficiencies": "Saggezza e Carisma",
+    "skill_proficiencies": "Due a scelta tra: Arcano, Indagare, Inganno, Intimidire, Natura, Religione o Storia",
+    "weapon_proficiencies": "Armi semplici",
+    "armor_proficiencies": "Armature leggere",
+    "starting_equipment": "A scelta tra A e B: (A) armatura di cuoio, falcetto, 2 pugnali, focus arcano (globo), libro (scienze occulte), dotazione da studioso e 15 mo; o (B) 100 mo",
+    "spellcasting": true,
+    "subclass_name": "Patrono immondo",
+    "subclass_level": 3,
+    "level1_features": [
+      {
+        "name": "",
+        "text": "Il warlock ha scoperto le Suppliche occulte, ovvero frammenti di conoscenze proibite che gli conferi - scono persistenti doti magiche o altre verità nasco - ste, tra cui la capacità di effettuare una supplica a scelta, come il Patto del Tomo. Per ulteriori dettagli sulle suppliche, consulta la sezione Opzioni di sup - pliche occulte dopo la descrizione di questa classe."
+      },
+      {
+        "name": "Prerequisiti",
+        "text": "Se una supplica ha un prerequisito, questo deve essere soddisfatto affinché venga appresa con successo. Per esempio, se la supplica richiede un warlock di 5º livello o superiore, è possibile farne uso solo una volta raggiunto il livello indicato."
+      },
+      {
+        "name": "Sostituire e ottenere suppliche",
+        "text": "Ogni volta che il personaggio ottiene un livello da warlock, può sostituire una delle sue suppliche con un'altra di cui possiede i prerequisiti. Non è possibile sostituire una supplica che sia un prerequisito per un'altra supplica già in possesso del personaggio. Quando il warlock raggiunge livelli superiori, ottiene ulteriori suppliche a scelta, come indicato nella colonna Suppliche nella tabella Privilegi del warlock. Non è possibile scegliere una supplica più di una volta, salvo diversamente indicato."
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Suppliche occulte",
+          "Magia del"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Scaltrezza magica"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Sottoclasse del warlock"
+        ]
+      },
+      {
+        "level": 4,
+        "proficiency_bonus": "+2",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 6,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 8,
+        "proficiency_bonus": "+3",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Contatta patrono"
+        ]
+      },
+      {
+        "level": 10,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Arcanum mistico (incantesimo"
+        ]
+      },
+      {
+        "level": 12,
+        "proficiency_bonus": "+4",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Arcanum mistico (incantesimo"
+        ]
+      },
+      {
+        "level": 14,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Privilegio della sottoclasse"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Arcanum mistico (incantesimo"
+        ]
+      },
+      {
+        "level": 16,
+        "proficiency_bonus": "+5",
+        "features": [
+          "Aumento dei punteggi di"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Arcanum mistico (incantesimo"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Dono epico"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency_bonus": "+6",
+        "features": [
+          "Maestro dell'occulto"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "barbaro": "Barbaro",
+  "bardo": "Bardo",
+  "chierico": "Chierico",
+  "druido": "Druido",
+  "guerriero": "Guerriero",
+  "ladro": "Ladro",
+  "mago": "Mago",
+  "monaco": "Monaco",
+  "paladino": "Paladino",
+  "ranger": "Ranger",
+  "stregone": "Stregone",
+  "warlock": "Warlock",
+  "dragonide": "Dragonide",
+  "elfo": "Elfo",
+  "gnomo": "Gnomo",
+  "goliath": "Goliath",
+  "halfling": "Halfling",
+  "nano": "Nano",
+  "orco": "Orco",
+  "tiefling": "Tiefling",
+  "umano": "Umano"
+}

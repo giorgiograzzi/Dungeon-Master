@@ -1,0 +1,132 @@
+[
+  {
+    "id": "armatura_imbottita",
+    "name_it": "Armatura imbottita",
+    "category": "leggera",
+    "base_ac": "11 + modificatore di Des",
+    "strength_requirement": "—",
+    "stealth": "Svantaggio",
+    "weight": "4 kg",
+    "cost": "5 mo"
+  },
+  {
+    "id": "armatura_di_cuoio",
+    "name_it": "Armatura di cuoio",
+    "category": "leggera",
+    "base_ac": "11 + modificatore di Des",
+    "strength_requirement": "—",
+    "stealth": "—",
+    "weight": "5 kg",
+    "cost": "10 mo"
+  },
+  {
+    "id": "armatura_di_cuoio_borchiato",
+    "name_it": "Armatura di cuoio borchiato",
+    "category": "leggera",
+    "base_ac": "12 + modificatore di Des",
+    "strength_requirement": "—",
+    "stealth": "—",
+    "weight": "6,5 kg",
+    "cost": "45 mo"
+  },
+  {
+    "id": "armatura_di_pelle",
+    "name_it": "Armatura di pelle",
+    "category": "media",
+    "base_ac": "12 + modificatore di Des (max 2)",
+    "strength_requirement": "—",
+    "stealth": "—",
+    "weight": "6 kg",
+    "cost": "10 mo"
+  },
+  {
+    "id": "giaco_di_maglia",
+    "name_it": "Giaco di maglia",
+    "category": "media",
+    "base_ac": "13 + modificatore di Des (max 2)",
+    "strength_requirement": "—",
+    "stealth": "—",
+    "weight": "10 kg",
+    "cost": "50 mo"
+  },
+  {
+    "id": "corazza_a_scaglie",
+    "name_it": "Corazza a scaglie",
+    "category": "media",
+    "base_ac": "14 + modificatore di Des (max 2)",
+    "strength_requirement": "—",
+    "stealth": "Svantaggio",
+    "weight": "22,5 kg",
+    "cost": "50 mo"
+  },
+  {
+    "id": "corazza_di_piastre",
+    "name_it": "Corazza di piastre",
+    "category": "media",
+    "base_ac": "14 + modificatore di Des (max 2)",
+    "strength_requirement": "—",
+    "stealth": "—",
+    "weight": "10 kg",
+    "cost": "400 mo"
+  },
+  {
+    "id": "mezza_armatura",
+    "name_it": "Mezza armatura",
+    "category": "media",
+    "base_ac": "15 + modificatore di Des (max 2)",
+    "strength_requirement": "—",
+    "stealth": "Svantaggio",
+    "weight": "20 kg",
+    "cost": "750 mo"
+  },
+  {
+    "id": "corazza_ad_anelli",
+    "name_it": "Corazza ad anelli",
+    "category": "pesante",
+    "base_ac": "14",
+    "strength_requirement": "—",
+    "stealth": "Svantaggio",
+    "weight": "20 kg",
+    "cost": "30 mo"
+  },
+  {
+    "id": "cotta_di_maglia",
+    "name_it": "Cotta di maglia",
+    "category": "pesante",
+    "base_ac": "16",
+    "strength_requirement": "For 13",
+    "stealth": "Svantaggio",
+    "weight": "27,5 kg",
+    "cost": "75 mo"
+  },
+  {
+    "id": "corazza_a_strisce",
+    "name_it": "Corazza a strisce",
+    "category": "pesante",
+    "base_ac": "17",
+    "strength_requirement": "For 15",
+    "stealth": "Svantaggio",
+    "weight": "30 kg",
+    "cost": "200 mo"
+  },
+  {
+    "id": "armatura_a_piastre",
+    "name_it": "Armatura a piastre",
+    "category": "pesante",
+    "base_ac": "18",
+    "strength_requirement": "For 15",
+    "stealth": "Svantaggio",
+    "weight": "32,5 kg",
+    "cost": "1.500 mo"
+  },
+  {
+    "id": "scudo",
+    "name_it": "Scudo",
+    "category": "scudo",
+    "base_ac": "+2",
+    "strength_requirement": "—",
+    "stealth": "—",
+    "weight": "3 kg",
+    "cost": "10 mo"
+  }
+]

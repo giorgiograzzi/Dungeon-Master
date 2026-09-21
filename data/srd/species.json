@@ -1,0 +1,235 @@
+[
+  {
+    "id": "dragonide",
+    "name_it": "Dragonide",
+    "creature_type": "umanoide",
+    "size": "Media (altezza di circa 150-210 centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Discendenza draconica",
+        "text": "Il personaggio discende da un progenitore draconico. Scegli la tipologia dalla tabella Antenati draconici. La tua decisione definisce il tipo soffio e il tratto di resistenza ai danni, ma anche l'aspetto del personaggio. Antenati draconici Drago Tipo di danni Drago Tipo di danni Argento Freddo Oro Fuoco Bianco Freddo Ottone Fuoco Blu Fulmine Rame Acido Bronzo Fulmine Rosso Fuoco Nero Acido Verde Veleno"
+      },
+      {
+        "name": "Soffio",
+        "text": "Quando il personaggio esegue l'azione di Attacco durante il turno, può sostituire uno dei suoi attacchi con un'esalazione di energia magica in un cono di 4,5 metri o in una linea lunga 9 metri e larga 1,5 (puoi scegliere la forma a ogni utilizzo). Ogni creatura nell'area deve effettuare un tiro salvezza su Destrezza (CD 8 più il modificatore di Costitu - zione e il bonus di competenza del personaggio). In caso di fallimento, vengono inflitti 1d10 danni del tipo determinato dal tratto Discendenza draconica. In caso di successo, subisce soltanto la metà di quei danni. I danni aumentano di 1d10 quando il per - sonaggio raggiunge il 5º livello (2d10), l'11º livello (3d10) e il 17º livello (4d10). Il personaggio può utilizzare il Soffio un numero di volte pari al valore del suo bonus di competenza e recuperare tutti gli utilizzi spesi quando completa un riposo lungo."
+      },
+      {
+        "name": "Resistenza ai danni",
+        "text": "Il personaggio dispone di resistenza ai danni del tipo determinato dal tratto Discendenza draconica."
+      },
+      {
+        "name": "Scurovisione",
+        "text": "Il personaggio ha scurovisione fino a un raggio di 18 metri."
+      },
+      {
+        "name": "Volo draconico",
+        "text": "Quando il personaggio raggiunge il 5º livello, può incanalare dell'energia draconica per volare temporaneamente. Come azione bonus, può far spuntare delle ali spettrali dalla sua schiena che durano per 10 minuti, fino al momento in cui decide di farle scomparire (nessuna azione richie - sta) o finché non diventa incapacitato. Durante quel periodo, è dotato di una velocità di volo pari alla sua velocità. L'aspetto delle ali varia in base al tipo di energia del Soffio. Dopo aver usato questo tratto, il personaggio non può riutilizzarlo prima di aver completato un riposo lungo."
+      }
+    ]
+  },
+  {
+    "id": "elfo",
+    "name_it": "Elfo",
+    "creature_type": "umanoide",
+    "size": "Media (altezza di circa 150-180 centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Scurovisione",
+        "text": "Il personaggio ha scurovisione fino a un raggio di 18 metri."
+      },
+      {
+        "name": "Lignaggio elfico",
+        "text": "Come parte di un lignaggio, è dotato di abilità soprannaturali. Scegli un lignag - gio dalla tabella Lignaggi elfici. Il personaggio otterrà il beneficio di 1º livello di quel determinato lignaggio. Quando raggiunge i livelli 3 e 5, apprenderà un incantesimo di livello superiore, come mostrato nella tabella. Tale incantesimo è sempre considerato come preparato. Può lanciarlo una volta senza con - sumare uno slot incantesimo e ne recupera l'utilizzo in questo modo dopo aver completato un riposo lungo. Può anche lanciarlo usando gli slot incante - simo a sua disposizione del livello appropriato. La caratteristica da incantatore del personaggio può essere Intelligenza, Saggezza o Carisma per gli incantesimi lanciati con questo tratto (decidi l'abilità quando scegli il lignaggio)."
+      },
+      {
+        "name": "Retaggio fatato",
+        "text": "Dispone di vantaggio ai tiri sal - vezza eseguiti per evitare o terminare la condizione affascinato su se stesso."
+      },
+      {
+        "name": "Sensi acuti",
+        "text": "Ha competenza nelle abilità Intui - zione, Percezione o Sopravvivenza."
+      },
+      {
+        "name": "Trance",
+        "text": "Non ha bisogno di dormire e la magia non può farlo addormentare. Può completare un riposo lungo in 4 ore rimanendo in uno stato di trance meditativa, durante il quale resta cosciente."
+      }
+    ]
+  },
+  {
+    "id": "gnomo",
+    "name_it": "Gnomo",
+    "creature_type": "umanoide",
+    "size": "Piccola (altezza di circa 90-120 centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Astuzia gnomesca",
+        "text": "Dispone di vantaggio a i tiri salvezza su Intelligenza, Saggezza e Carisma."
+      },
+      {
+        "name": "Lignaggio gnomesco",
+        "text": "Come parte di un lignaggio, è dotato di abilità soprannaturali. Scegli una delle opzioni seguenti. A prescindere da quella selezio - nata, la caratteristica da incantatore del personag - gio può essere Intelligenza, Saggezza o Carisma per gli incantesimi lanciati con questo tratto (decidi l'abilità quando scegli il lignaggio):"
+      },
+      {
+        "name": "Gnomo delle foreste",
+        "text": "Il personaggio conosce il trucchetto illusione minore. Inoltre, l'incantesimo parlare con gli animali è sempre considerato come preparato. Può lanciarlo senza consumare uno slot incantesimo un numero di volte pari al suo bonus di competenza e riacquista tutti gli usi spesi al termine di un riposo lungo. Può anche lanciare l'incantesimo usando uno qualsiasi degli slot incantesimo a sua disposizione."
+      },
+      {
+        "name": "Gnomo delle rocce",
+        "text": "Conosce i trucchetti riparare e prestidigitazione. Inoltre, può impiegare 10 minuti di lancio di prestidigitazione per creare un piccolo dispositivo meccanico (CA 5, 1 PF), come un giocattolo, un accendifuoco o un carillon. Una volta creato, puoi determinare il suo effetto scegliendolo fra quelli di prestidigita- zione. Il dispositivo lo produrrà ogni volta che il personaggio o un'altra creatura utilizza un'azione bonus per attivarlo a contatto. Se l'effetto selezio - nato presenta ulteriori opzioni, puoi sceglierne una al momento della creazione del congegno. Per esempio, puoi selezionare l'effetto di accen - sione o spegnimento e decidere quale dei due applicare. Il dispositivo creato non può eseguirli entrambi. Il personaggio può avere in contem - poranea fino a tre oggetti del genere. Ciascuno si smantella 8 ore dopo la sua creazione o finché non lo fa il personaggio stesso con un'azione di Contatto o Utilizzo."
+      },
+      {
+        "name": "Scurovisione",
+        "text": "Il personaggio ha scurovisione fino a un raggio di 18 metri."
+      }
+    ]
+  },
+  {
+    "id": "goliath",
+    "name_it": "Goliath",
+    "creature_type": "umanoide",
+    "size": "Media (altezza di circa 210-240 centimetri)",
+    "speed": "10,5 metri",
+    "traits": [
+      {
+        "name": "Costituzione robusta",
+        "text": "Ha vantaggio a qualsiasi prova di caratteristica effettuata per non essere afferrato. Inoltre, la capacità di trasporto del perso - naggio è quella di una taglia superiore."
+      },
+      {
+        "name": "Discendenza gigantica",
+        "text": "Il personaggio discende dai giganti. Sceglie uno dei seguenti doni sopran - naturali derivati dal suo retaggio. Il personaggio può utilizzare il beneficio un numero di volte pari al valore del suo bonus di competenza e recupera tutti gli utilizzi spesi quando completa un riposo lungo:"
+      },
+      {
+        "name": "Brivido gelante (gigante del gelo)",
+        "text": "Quando colpisce un bersaglio con un tiro per colpire e gli infligge dei danni, può anche infliggergli 1d6 danni da freddo e ridurre la sua velocità di 3 metri fino all'inizio del proprio turno successivo. Forza della collina (gigante delle colline). Quando colpisce una creatura di taglia Grande o inferiore con un tiro per colpire e le infligge dei danni, quest'ultima può cadere prona. Lignaggi elfici Lignaggio Livello 1 Livello 3 Livello 5 Drow La portata di scurovisione aumenta fino a 36 metri. Inoltre, il personaggio conosce il trucchetto luci danzanti. Luminescenza Oscurità Elfo alto Il personaggio impara il trucchetto prestidigitazione . Ogni volta che completa un riposo lungo, può sostituirlo con un altro trucchetto dalla lista degli incantesimi del mago. Individuazione del magico Passo velato Elfo dei boschi La velocità del personaggio aumenta a 10,5 metri. Inoltre, conosce il trucchetto artificio druidico . Passo veloce Passare senza tracce"
+      },
+      {
+        "name": "Fuoco bruciante (gigante del fuoco)",
+        "text": "Quando colpisce un bersaglio con un tiro per colpire e gli infligge dei danni, può anche infliggergli 1d10 danni da fuoco. Resistenza della pietra (gigante delle pietre). Quando subisce danni, può usare una reazione per tirare 1d12. Aggiungi il suo modificatore di Costituzione al numero ottenuto e sottrai il totale ai danni subiti."
+      },
+      {
+        "name": "Salta-nuvole (gigante delle nuvole)",
+        "text": "Come azione bonus, può teletrasportarsi magicamente di un massimo di 9 metri fino a uno spazio libero che è in grado di vedere. Tuono tempestoso (gigante delle tempeste). Quando subisce danni da una creatura entro 18 metri da sé, può usare una reazione per inflig - gerle 1d8 danni da tuono."
+      },
+      {
+        "name": "Forma Grande",
+        "text": "A partire dal 5º livello, come azione bonus può diventare di taglia Grande se si trova in uno spazio abbastanza ampio. La trasfor - mazione dura per 10 minuti o finché non la inter - rompe (nessuna azione richiesta). Per tutta la sua durata, ottiene vantaggio alle prove di Forza e la sua velocità aumenta di 3 metri. Dopo aver usato questo tratto, il personaggio non può riutilizzarlo prima di aver completato un riposo lungo."
+      }
+    ]
+  },
+  {
+    "id": "halfling",
+    "name_it": "Halfling",
+    "creature_type": "umanoide",
+    "size": "Piccola (altezza di circa 60-90 centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Agilità halfling",
+        "text": "Può attraversare lo spazio occu - pato da qualsiasi creatura più grande di lui, ma non può soffermarcisi."
+      },
+      {
+        "name": "Coraggioso",
+        "text": "Dispone di vantaggio ai tiri salvezza eseguiti per evitare o terminare la condizione spa - ventato su se stesso."
+      },
+      {
+        "name": "Fortuna",
+        "text": "Quando effettui una prova con d20 e ottieni 1, puoi ritirare il dado e devi utilizzare il nuovo risultato."
+      },
+      {
+        "name": "Furtività innata",
+        "text": "Può effettuare l'azione di Nascondersi anche se è oscurato solo da una singola creatura, purché questa sia più grande di lui di almeno una taglia."
+      }
+    ]
+  },
+  {
+    "id": "nano",
+    "name_it": "Nano",
+    "creature_type": "umanoide",
+    "size": "Media (altezza di circa 120-150centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Esperto minatore",
+        "text": "Come azione bonus, il perso - naggio ottiene percezione tellurica con un raggio di 18 metri per 10 minuti. Per poterla utilizzare, deve trovarsi su una superficie di pietra o toccarla. La pietra deve essere naturale o lavorata. Il personaggio può utilizzare questa azione bonus un numero di volte pari al valore del suo bonus di competenza, recuperando tutti gli utilizzi spesi quando completa un riposo lungo."
+      },
+      {
+        "name": "Resilienza nanica",
+        "text": "Ha resistenza ai danni da veleno. Dispone di vantaggio sui tiri salvezza eseguiti per evitare o terminare la condizione avve - lenato su se stesso."
+      },
+      {
+        "name": "Robustezza nanica",
+        "text": "I punti ferita massimi di un nano aumentano di 1 e aumentano di nuovo di 1 ogni volta che acquisisce un livello."
+      },
+      {
+        "name": "Scurovisione",
+        "text": "Ha scurovisione fino a un raggio di 36 metri."
+      }
+    ]
+  },
+  {
+    "id": "orco",
+    "name_it": "Orco",
+    "creature_type": "umanoide",
+    "size": "Media (altezza di circa 180-210 centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Resistenza implacabile",
+        "text": "Quando scende a 0 punti ferita ma non viene ucciso sul colpo, può decidere di rimanere a 1 punto ferita. Dopo averlo usato, non può riutilizzare questo tratto prima di aver comple - tato un riposo lungo."
+      },
+      {
+        "name": "Scarica di adrenalina",
+        "text": "L'orco può utilizzare l'azione di Scatto come azione bonus. Ogni volta che lo fa, ottiene un numero di punti ferita temporanei pari al suo bonus di competenza."
+      },
+      {
+        "name": "Scurovisione",
+        "text": "Ha scurovisione fino a un raggio di 36 metri."
+      }
+    ]
+  },
+  {
+    "id": "tiefling",
+    "name_it": "Tiefling",
+    "creature_type": "umanoide",
+    "size": "Media (altezza di circa 120-210 centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Retaggio immondo",
+        "text": "Grazie alla sua discendenza è dotato di abilità soprannaturali. Scegli un retaggio dalla tabella Retaggi immondi. Dopodiché, il perso - naggio otterrà il beneficio di 1º livello del retaggio selezionato."
+      },
+      {
+        "name": "Presenza ultraterrena",
+        "text": "Conosce il trucchetto taumaturgia. Quando lo lancia sfruttando questo tratto, l'incantesimo utilizza la stessa caratteristica da incantatore del tratto Retaggio immondo. Quando raggiunge i livelli 3 e 5, apprenderà un incantesimo di livello superiore, come mostrato nella tabella. Tale incantesimo è sempre considerato come preparato. Può lanciarlo una volta senza con - sumare uno slot incantesimo e ne recupera l'utilizzo in questo modo dopo aver completato un riposo lungo. Può anche lanciarlo usando gli slot incante - simo a sua disposizione del livello appropriato. La caratteristica da incantatore del personaggio può essere Intelligenza, Saggezza o Carisma per gli incantesimi lanciati con questo tratto (decidi l'abilità quando scegli il retaggio)."
+      },
+      {
+        "name": "Scurovisione",
+        "text": "Ha scurovisione fino a un raggio di 18 metri."
+      }
+    ]
+  },
+  {
+    "id": "umano",
+    "name_it": "Umano",
+    "creature_type": "umanoide",
+    "size": "Media (altezza di circa 120-210 centimetri)",
+    "speed": "9 metri",
+    "traits": [
+      {
+        "name": "Intraprendente",
+        "text": "Ottiene Ispirazione eroica ogni volta che completa un riposo lungo."
+      },
+      {
+        "name": "Pluriabilità",
+        "text": "Acquisisce competenza in un'abilità a sua scelta."
+      },
+      {
+        "name": "Versatile",
+        "text": "Ottiene un talento Origini a sua scelta (vedi capitolo \"Talenti\"). È consigliato il talento Abile. Retaggi immondi Retaggio Livello 1 Livello 3 Livello 5 Abissale Possiede resistenza ai danni da veleno. Inoltre, conosce il trucchetto spruzzo velenoso. Raggio di infermità Blocca persone Ctonio Possiede resistenza ai danni necrotici. Inoltre, conosce il trucchetto tocco gelido. Vita falsata Raggio di affaticamento Infernale Possiede resistenza ai danni da fuoco. Inoltre, conosce il trucchetto dardo di fuoco. Intimorire infernale Oscurità"
+      }
+    ]
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "abile",
+    "name_it": "Abile",
+    "category": "Origini",
+    "prerequisite": "",
+    "text": "Il personaggio ottiene competenza in una combina - zione di tre abilità o strumenti a scelta. Ripetibile. Questo talento è ottenibile più di una volta."
+  },
+  {
+    "id": "aggressore_selvaggio",
+    "name_it": "Aggressore selvaggio",
+    "category": "Origini",
+    "prerequisite": "",
+    "text": "Il personaggio si è allenato per sferrare colpi particolarmente letali. Una volta per turno, quando colpisce un bersaglio con un'arma, puoi tirare due volte per i danni dell'arma e scegliere il risultato che preferisci."
+  },
+  {
+    "id": "allerta",
+    "name_it": "Allerta",
+    "category": "Origini",
+    "prerequisite": "",
+    "text": "Il personaggio ottiene i seguenti benefici. Competenza in iniziativa.  Quando tiri per l'ini - ziativa, puoi aggiungere il bonus di competenza del personaggio al risultato del tiro. Scambio di iniziativa. Subito dopo aver tirato per l'iniziativa, puoi scambiare il risultato ottenuto con quello di un alleato consenziente durante il mede - simo combattimento. Se il tuo personaggio o il suo alleato è incapacitato, non è possibile eseguire lo scambio."
+  },
+  {
+    "id": "iniziato_alla_magia",
+    "name_it": "Iniziato alla magia",
+    "category": "Origini",
+    "prerequisite": "",
+    "text": "Il personaggio ottiene i seguenti benefici. Due trucchetti.  Il personaggio apprende due trucchetti a scelta tratti dalla lista degli incantesimi da chierico, druido o mago. La caratteristica da incantatore per gli incantesimi di questo talento può essere Intelligenza, Saggezza o Carisma (scegli la caratteristica quando ottieni questo talento). Incantesimo di 1º livello. Scegli un incantesimo di 1º livello dalla stessa lista da cui hai selezionato i trucchetti forniti da questo talento. Tale incante - simo è sempre considerato come preparato. Il per - sonaggio può lanciarlo una volta senza consumare uno slot incantesimo e ne recupera l'utilizzo in questo modo dopo aver completato un riposo lungo. Può anche lanciare l'incantesimo usando uno qual - siasi degli slot incantesimo a sua disposizione. Cambio incantesimo. Quando il personaggio ottiene un nuovo livello, puoi sostituire uno degli incantesimi scelti per questo talento con un altro dello stesso livello dalla lista prescelta. Ripetibile. Questo talento è ottenibile più di una volta, ma devi scegliere una lista degli incantesimi diversa a ogni selezione."
+  },
+  {
+    "id": "aumento_dei_punteggi_di_caratteristica",
+    "name_it": "Aumento dei punteggi di caratteristica",
+    "category": "Generali",
+    "prerequisite": "prerequisito: 4º livello o superiore",
+    "text": "Aumenta un punteggio di caratteristica a sua scelta di 2, oppure aumenta due punteggi di caratteristica di 1. Questo talento non può incrementare un pun - teggio di caratteristica oltre il 20. Ripetibile. Questo talento è ottenibile più di una volta."
+  },
+  {
+    "id": "lottatore",
+    "name_it": "Lottatore",
+    "category": "Generali",
+    "prerequisite": "prerequisito: 4º livello o superiore, Forza o Destrezza 13 o superiore",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica.  Il suo punteggio di Forza o Destrezza aumenta di 1, fino a un massimo di 20. Colpisci e afferra.  Quando il personaggio colpisce una creatura con un colpo senz'armi come parte di un'azione di Attacco nel proprio turno, può usare sia l'opzione Danni che Presa. Questo beneficio è utilizzabile una sola volta per turno. Attacco con vantaggio. Dispone di vantaggio ai tiri per colpire contro le creature che ha afferrato. Lottatore rapido. Il personaggio non deve spen - dere alcun movimento extra se sposta una creatura che ha afferrato che sia della sua stessa categoria di taglia o inferiore."
+  },
+  {
+    "id": "combattere_con_armi_possenti",
+    "name_it": "Combattere con armi possenti",
+    "category": "Stile di combattimento",
+    "prerequisite": "prerequisito: privilegio Stile di combattimento",
+    "text": "Quando tiri per i danni per un attacco effettuato con un'arma da mischia che il personaggio impugna a due mani, se il risultato ottenuto è 1 o 2, puoi invece considerarlo come un 3. L'arma deve pos- sedere la proprietà a due mani o versatile affinché ottenga questo beneficio."
+  },
+  {
+    "id": "combattere_con_due_armi",
+    "name_it": "Combattere con due armi",
+    "category": "Stile di combattimento",
+    "prerequisite": "prerequisito: privilegio Stile di combattimento",
+    "text": "Quando il personaggio effettua un attacco extra come risultato dell'uso di un'arma leggera, puoi aggiungere il suo modificatore di caratteristica al danno di  quell'attacco a patto che non sia già stato aggiunto in altro modo."
+  },
+  {
+    "id": "difesa",
+    "name_it": "Difesa",
+    "category": "Stile di combattimento",
+    "prerequisite": "prerequisito: privilegio Stile di combattimento",
+    "text": "Finché il personaggio indossa un'armatura leg - gera, media o pesante, ottiene un +1 alla Classe Armatura."
+  },
+  {
+    "id": "tiro",
+    "name_it": "Tiro",
+    "category": "Stile di combattimento",
+    "prerequisite": "prerequisito: privilegio Stile di combattimento",
+    "text": "Il personaggio ottiene un bonus di +2 ai tiri per colpire che effettua con le armi a distanza."
+  },
+  {
+    "id": "dono_del_fato",
+    "name_it": "Dono del fato",
+    "category": "Dono epico",
+    "prerequisite": "prerequisito: 19º livello o superiore",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica. Il punteggio di una sua caratteristica a scelta aumenta di 1, fino a un massimo di 30. Fato migliorato. Quando il personaggio o un'altra creatura entro 18 metri da sé supera o fallisce una prova con d20, può tirare 2d4 e applicare il risultato ottenuto come bonus o penalità a tale prova con d20. Una volta utilizzato questo beneficio, non può più utilizzarlo finché non tira per l'iniziativa o non completa un riposo breve o lungo."
+  },
+  {
+    "id": "dono_della_vista_pura",
+    "name_it": "Dono della vista pura",
+    "category": "Dono epico",
+    "prerequisite": "prerequisito: 19º livello o superiore",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica. Il punteggio di una sua caratteristica a scelta aumenta di 1, fino a un massimo di 30. Vista pura. Il personaggio ottiene vista pura con un raggio di 18 metri."
+  },
+  {
+    "id": "dono_delle_abilita_di_combattimento",
+    "name_it": "Dono delle abilità di combattimento",
+    "category": "Dono epico",
+    "prerequisite": "prerequisito: 19º livello o superiore",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica. Il punteggio di una sua caratteristica a scelta aumenta di 1, fino a un massimo di 30. Mira impareggiabile. Quando il tiro per colpire del personaggio non va a segno, è possibile colpire comunque il bersaglio. Una volta sfruttato questo beneficio, non può essere riutilizzato fino all'inizio del turno successivo del personaggio."
+  },
+  {
+    "id": "dono_dell_offensiva_irresistibile",
+    "name_it": "Dono dell'offensiva irresistibile",
+    "category": "Dono epico",
+    "prerequisite": "prerequisito: 19º livello o superiore",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica.  Il suo punteggio di Forza o Destrezza aumenta di 1, fino a un massimo di 30. Ignora difese. I danni contundenti, perforanti e taglienti inflitti dal personaggio ignorano sempre la resistenza. Colpo soverchiante. Quando tira per colpire con il d20 e ottiene un 20, il personaggio può infliggere una quantità di danni extra al bersaglio pari al punteggio di caratteristica incrementato da questo talento. Il danno aggiuntivo è dello stesso tipo di quello dell'attacco."
+  },
+  {
+    "id": "dono_dello_spirito_notturno",
+    "name_it": "Dono dello spirito notturno",
+    "category": "Dono epico",
+    "prerequisite": "prerequisito: 19º livello o superiore",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica. Il punteggio di una sua caratteristica a scelta aumenta di 1, fino a un massimo di 30. Fusione con le ombre. Finché si trova in un'area di oscurità o luce fioca, può diventare invisibile come azione bonus. Tale condizione termina subito dopo che il personaggio effettua un'azione, un'azione bonus o una reazione. Forma d'ombra. Finché si trova in un'area di oscurità o luce fioca, ha resistenza a tutti i tipi di danno, tranne quelli psichici e radiosi."
+  },
+  {
+    "id": "dono_del_richiamo_degli_incantesimi",
+    "name_it": "Dono del richiamo degli incantesimi",
+    "category": "Dono epico",
+    "prerequisite": "prerequisito: 19º livello o superiore, privilegio Incantesimi",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica.  Il suo punteggio di Intelligenza, Saggezza o Carisma aumenta di 1, fino a un massimo di 30. Lancio libero. Quando lancia un incantesimo con uno slot di livello da 1 a 4, tira 1d4. Se il risultato corrisponde al livello dello slot, questo non verrà consumato."
+  },
+  {
+    "id": "dono_del_viaggio_dimensionale",
+    "name_it": "Dono del viaggio dimensionale",
+    "category": "Dono epico",
+    "prerequisite": "prerequisito: 19º livello o superiore",
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica. Il punteggio di una sua caratteristica a scelta aumenta di 1, fino a un massimo di 30. Passi fulminei. Subito dopo che il personaggio effettua un'azione di Attacco o Magia, può teletra - sportarsi di massimo 9 metri in uno spazio libero che è in grado di vedere."
+  }
+]

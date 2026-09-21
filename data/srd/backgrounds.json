@@ -1,0 +1,38 @@
+[
+  {
+    "id": "accolito",
+    "name_it": "Accolito",
+    "ability_scores": "Intelligenza, Saggezza, Carisma",
+    "feat": "Iniziato alla magia (chierico) (vedi capitolo \"Talenti\")",
+    "skill_proficiencies": "Intuizione e Religione",
+    "tool_proficiency": "scorte da calligrafo",
+    "equipment": "a scelta tra A e B: (A) scorte da cal- ligrafo, libro (preghiere), simbolo sacro, pergamena (10 fogli), tunica, 8 mo; o (B) 50 mo"
+  },
+  {
+    "id": "criminale",
+    "name_it": "Criminale",
+    "ability_scores": "Destrezza, Costituzione, Intelligenza",
+    "feat": "Allerta (vedi \"Talenti\")",
+    "skill_proficiencies": "Rapidità di mano e Furtività",
+    "tool_proficiency": "arnesi da scasso",
+    "equipment": "a scelta tra A e B: (A) 2 pugnali, arnesi da scasso, piede di porco, 2 borse, abiti da viaggiatore, 16 mo; o (B) 50 mo"
+  },
+  {
+    "id": "sapiente",
+    "name_it": "Sapiente",
+    "ability_scores": "Costituzione, Intelligenza, Saggezza",
+    "feat": "Iniziato alla magia (mago) (vedi capitolo \"Talenti\")",
+    "skill_proficiencies": "Arcano e Storia",
+    "tool_proficiency": "scorte da calligrafo",
+    "equipment": "a scelta tra A e B: (A) bastone fer- rato, scorte da calligrafo, libro (storia) pergamena (8 fogli), tunica, 8 mo; o (B) 50 mo"
+  },
+  {
+    "id": "soldato",
+    "name_it": "Soldato",
+    "ability_scores": "Forza, Destrezza, Costituzione",
+    "feat": "Aggressore selvaggio (vedi capitolo \"Talenti\")",
+    "skill_proficiencies": "Atletica e Intimidire",
+    "tool_proficiency": "Un tipo di gioco a scelta (vedi \"Equipaggiamento\")",
+    "equipment": "a scelta tra A e B: (A) lancia, arco corto, 20 frecce, gioco (lo stesso scelto sopra), borsa del guaritore, faretra, abiti da viaggiatore, 14 mo; o (B) 50 mo"
+  }
+]
