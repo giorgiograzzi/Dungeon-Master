@@ -165,6 +165,7 @@ async def post_details(
     data["step"] = "summary"
     if not is_complete_for_summary(data):
         character.status = "complete"
+        data = wizard.finalize_character(data)
     character = await save_character_data(session, character, data)
     return {"data": character.data, "status": character.status}
 

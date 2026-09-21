@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     model_climax: str = "claude-sonnet-5"
     rule_weapon_swap_cost: Literal["action", "free_interaction"] = "action"
     port: int = 8000
+    dev_fake_ai: bool = False
 
     @property
     def allowed_user_ids_set(self) -> frozenset[int]:

@@ -5,7 +5,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm.attributes import flag_modified
 
 from app.character.schema import new_character_data
-from app.models import Character, User
+from app.game.schema import new_game_save_data
+from app.models import Character, GameSave, User
 
 
 async def get_or_create_user(
@@ -45,3 +46,49 @@ async def save_character_data(session: AsyncSession, character: Character, data:
     await session.commit()
     await session.refresh(character)
     return character
+
+
+AUTOSAVE_SLOT = "autosave"
+MANUAL_SLOTS = [f"slot_{i}" for i in range(1, 6)]  # 5 slot manuali (§6)
+
+
+async def get_or_create_save(session: AsyncSession, user: User, slot: str = AUTOSAVE_SLOT) -> GameSave:
+    result = await session.execute(
+        select(GameSave).where(GameSave.user_id == user.id, GameSave.slot == slot)
+    )
+    save = result.scalar_one_or_none()
+    if save is None:
+        save = GameSave(user_id=user.id, slot=slot, data=new_game_save_data())
+        session.add(save)
+        await session.commit()
+        await session.refresh(save)
+    return save
+
+
+async def save_game_data(session: AsyncSession, save: GameSave, data: dict) -> GameSave:
+    save.data = data
+    flag_modified(save, "data")
+    await session.commit()
+    await session.refresh(save)
+    return save
+
+
+async def list_saves(session: AsyncSession, user: User) -> list[GameSave]:
+    result = await session.execute(
+        select(GameSave).where(GameSave.user_id == user.id).order_by(GameSave.slot)
+    )
+    return list(result.scalars().all())
+
+
+async def create_manual_save(session: AsyncSession, user: User, name: str, data: dict) -> GameSave:
+    """Copia lo stato attuale (di solito l'autosave) in un nuovo slot manuale
+    con nome, scegliendo il primo libero tra i 5 disponibili (§6)."""
+    existing = {s.slot for s in await list_saves(session, user)}
+    free_slot = next((slot for slot in MANUAL_SLOTS if slot not in existing), None)
+    if free_slot is None:
+        raise ValueError("tutti i 5 slot di salvataggio manuale sono occupati")
+    save = GameSave(user_id=user.id, slot=free_slot, name=name, data=data)
+    session.add(save)
+    await session.commit()
+    await session.refresh(save)
+    return save

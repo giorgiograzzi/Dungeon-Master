@@ -37,4 +37,7 @@ def new_character_data() -> dict:
         "hp_max": None,
         "hp_temp": 0,
         "inspiration": False,
+        "gold_adjustment": 0,
+        "inventory": [],
+        "conditions": [],
     }

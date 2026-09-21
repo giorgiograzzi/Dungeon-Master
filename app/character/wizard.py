@@ -6,6 +6,7 @@ nascosto: la persistenza è compito del chiamante (routes)."""
 from __future__ import annotations
 
 from app import srd_data
+from app.character.sheet import compute_sheet, is_complete_for_summary
 from rules.ability_scores import (
     POINT_BUY_BUDGET,
     STANDARD_ARRAY,
@@ -152,4 +153,15 @@ def set_personal_details(data: dict, name: str, details: dict[str, str]) -> dict
         raise WizardError(f"campi sconosciuti: {sorted(unknown)}")
     data["name"] = name.strip()
     data["personal_details"].update(details)
+    return data
+
+
+def finalize_character(data: dict) -> dict:
+    """Fissa i PF iniziali una tantum quando la creazione si completa (§6):
+    da qui in poi il personaggio ha uno stato di gioco reale da far evolvere
+    in partita, non solo una scheda ricalcolata ogni volta da zero."""
+    if data.get("hp_max") is None and not is_complete_for_summary(data):
+        sheet = compute_sheet(data)
+        data["hp_max"] = sheet["hit_points"]["maximum"]
+        data["hp_current"] = sheet["hit_points"]["current"]
     return data
