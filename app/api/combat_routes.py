@@ -199,6 +199,7 @@ async def post_item_use(
     except ItemUseError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
     character.data["inventory"].remove(payload.item)
+    save.data.setdefault("stats", {"hp_lost": 0, "items_used": 0})["items_used"] += 1
 
     await save_character_data(session, character, character.data)
     await save_game_data(session, save, save.data)

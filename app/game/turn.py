@@ -11,6 +11,7 @@ from app.game.combat import current_combatant, run_monster_turns_until_player, s
 from app.game.effects import apply_effects
 from rules.dice import roll_d20
 from rules.difficulty import check_result, dc_for_band
+from rules.pacing import compute_pacing
 
 
 class DailyCapExceeded(RuntimeError):
@@ -31,6 +32,16 @@ def _find_cached_turn(save_data: dict, turn_id: str) -> dict | None:
         if turn.get("turn_id") == turn_id:
             return turn
     return None
+
+
+def _pacing_message(save_data: dict) -> dict | None:
+    plan = save_data.get("campaign_plan")
+    if plan is None:
+        return None
+    return {
+        "role": "user",
+        "content": f"[ritmo] {compute_pacing(duration_target=plan.get('duration_target', 'media'), turn_count=save_data.get('turn_count', 0), current_act=save_data.get('current_act', 1))}",
+    }
 
 
 def _resolve_bonus(character_sheet: dict, check: dict) -> int:
@@ -61,7 +72,11 @@ async def play_turn(
 
     _check_daily_cap(save_data, daily_cap)
 
-    messages: list[dict] = [{"role": "user", "content": action_text}]
+    messages: list[dict] = []
+    pacing_message = _pacing_message(save_data)
+    if pacing_message is not None:
+        messages.append(pacing_message)
+    messages.append({"role": "user", "content": action_text})
     check = await ai_client.call_tool(model=model, system=system_prompt, messages=messages, tool=REQUEST_CHECK_TOOL)
 
     roll_result = None

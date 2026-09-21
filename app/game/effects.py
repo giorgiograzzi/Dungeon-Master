@@ -43,13 +43,18 @@ def apply_effects(character_data: dict, save_data: dict, effects: list[dict]) ->
     return applied
 
 
+def _stats(save_data: dict) -> dict:
+    return save_data.setdefault("stats", {"hp_lost": 0, "items_used": 0})
+
+
 def _hp_delta(character_data: dict, save_data: dict, effect: dict) -> str:
     hp = _hp_wrapper(character_data)
     delta = int(effect.get("value", 0))
     if delta >= 0:
         hp.heal(delta)
     else:
-        hp.apply_damage(-delta)
+        real_damage = hp.apply_damage(-delta)
+        _stats(save_data)["hp_lost"] += real_damage
     _sync_hp(character_data, hp)
     return f"PF: {delta:+d} (ora {hp.current}/{hp.maximum})"
 
@@ -71,6 +76,10 @@ def _item_remove(character_data: dict, save_data: dict, effect: dict) -> str:
     target = effect.get("target")
     if target in inventory:
         inventory.remove(target)
+        # Un oggetto rimosso durante il gioco è quasi sempre un consumabile
+        # usato (pozioni, pergamene...): proxy ragionevole per le statistiche
+        # finali "oggetti usati" (§5), senza un effect dedicato "item_use".
+        _stats(save_data)["items_used"] += 1
     return f"Rimosso dall'inventario: {target}"
 
 
@@ -141,6 +150,21 @@ def _side_quest(status: str):
     return handler
 
 
+def _side_quest_complete(character_data: dict, save_data: dict, effect: dict) -> str:
+    """Come `_side_quest("completata")`, ma registra anche la ricompensa
+    della quest (letta dal Piano di Campagna) tra quelle ottenute: il finale
+    ne terrà conto (§5, "il codice registra le ricompense ottenute")."""
+    target = effect.get("target")
+    save_data.setdefault("side_quests_state", {})[target] = "completata"
+
+    plan = save_data.get("campaign_plan") or {}
+    quest = next((q for q in plan.get("side_quests", []) if q["id"] == target), None)
+    rewards = save_data.setdefault("rewards_obtained", [])
+    if quest and not any(r["quest_id"] == target for r in rewards):
+        rewards.append({"quest_id": target, "reward": quest.get("reward"), "unlocks": quest.get("unlocks")})
+    return f"Quest secondaria {target}: completata"
+
+
 def _route_chosen(character_data: dict, save_data: dict, effect: dict) -> str:
     save_data["current_route_id"] = effect.get("value")
     return f"Percorso scelto: {effect.get('value')}"
@@ -152,6 +176,20 @@ def _gate_solved(character_data: dict, save_data: dict, effect: dict) -> str:
     if target and target not in gates:
         gates.append(target)
     return f"Gate risolto: {target}"
+
+
+def _ending_reached(character_data: dict, save_data: dict, effect: dict) -> str:
+    """L'AI propone un finale tra quelli del Piano di Campagna; il codice
+    valida che l'id esista davvero (§0.1: l'AI non inventa mai lo stato)."""
+    plan = save_data.get("campaign_plan") or {}
+    target = effect.get("target") or effect.get("value")
+    valid_ids = {e["id"] for e in plan.get("endings", [])}
+    if target not in valid_ids:
+        logger.warning("finale sconosciuto proposto dall'AI, scartato: %r", target)
+        return f"Finale sconosciuto scartato: {target}"
+    save_data["ended"] = True
+    save_data["ending_id"] = target
+    return f"Finale raggiunto: {target}"
 
 
 def _npc_state(target_key: str):
@@ -190,10 +228,11 @@ _HANDLERS = {
     "beat_progress": _beat_progress,
     "side_quest_start": _side_quest("aperta"),
     "side_quest_update": _side_quest("aggiornata"),
-    "side_quest_complete": _side_quest("completata"),
+    "side_quest_complete": _side_quest_complete,
     "route_chosen": _route_chosen,
     "gate_solved": _gate_solved,
     "npc_attitude": _npc_state("attitude"),
     "npc_learned": _npc_state("known"),
     "npc_status": _npc_state("status"),
+    "ending_reached": _ending_reached,
 }

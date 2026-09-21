@@ -322,6 +322,7 @@ def test_resolve_monster_turn_attacks_player(monkeypatch):
     player = combat.find_combatant(save, "player")
     assert player["hp"]["current"] < player["hp"]["maximum"]
     assert monster["action_economy"]["used"]["action"] == 1
+    assert save["stats"]["hp_lost"] == result["damage"]
 
 
 def test_run_monster_turns_until_player_resolves_all_monsters_then_stops(monkeypatch):

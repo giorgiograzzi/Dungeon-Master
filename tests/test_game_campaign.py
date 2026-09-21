@@ -10,6 +10,7 @@ from app.game.campaign import (
     is_at_crossroads,
     present_crossroads,
     public_campaign_summary,
+    rewind_to_crossroad,
 )
 from app.game.schema import new_game_save_data
 
@@ -64,3 +65,37 @@ async def test_crossroads_flow():
     choose_route(save, "ombra")
     assert save["current_route_id"] == "ombra"
     assert is_at_crossroads(plan, save) is None  # risolto, il prossimo richiede l'atto 2
+    assert save["current_act"] == 2  # bivio 1 superato -> si entra nell'Atto II (§4)
+
+    save["completed_beats"].append("rivelazione_centrale")
+    choose_route(save, "acciaio")
+    assert save["current_act"] == 3
+
+
+async def test_rewind_to_crossroad_restores_pre_choice_state():
+    plan = await generate_and_validate_campaign_plan(
+        ai_client=FakeAIClient(), model="fake", system_prompt="", setting="noir", duration="breve"
+    )
+    save = new_game_save_data()
+    save["campaign_plan"] = plan
+    save["completed_beats"].append("incidente_scatenante")
+
+    choose_route(save, "ombra")
+    assert save["current_route_id"] == "ombra"
+    save["facts"].append("un fatto scoperto sulla via dell'ombra")
+
+    rewind_to_crossroad(save, 0)
+    assert save["current_route_id"] is None
+    assert save["current_act"] == 1
+    assert save["facts"] == []
+    # Il bivio torna risolvibile: si può scegliere un percorso diverso.
+    assert is_at_crossroads(plan, save) is not None
+
+    choose_route(save, "acciaio")
+    assert save["current_route_id"] == "acciaio"
+
+
+def test_rewind_to_crossroad_without_snapshot_raises():
+    save = new_game_save_data()
+    with pytest.raises(ValueError):
+        rewind_to_crossroad(save, 0)

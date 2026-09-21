@@ -98,6 +98,59 @@ def test_side_quest_lifecycle():
     assert save["side_quests_state"]["sq1"] == "completata"
 
 
+def test_side_quest_complete_registers_reward_from_campaign_plan():
+    char = _char()
+    save = new_game_save_data()
+    save["campaign_plan"] = {
+        "side_quests": [{"id": "sq1", "reward": {"type": "indizio", "effect": "svela il covo"}, "unlocks": "un alleato"}]
+    }
+    apply_effects(char, save, [{"type": "side_quest_complete", "target": "sq1"}] * 2)  # deduplicato
+    assert save["rewards_obtained"] == [{"quest_id": "sq1", "reward": {"type": "indizio", "effect": "svela il covo"}, "unlocks": "un alleato"}]
+
+
+def test_side_quest_complete_without_campaign_plan_does_not_crash():
+    char = _char()
+    save = new_game_save_data()
+    apply_effects(char, save, [{"type": "side_quest_complete", "target": "sq1"}])
+    assert save["side_quests_state"]["sq1"] == "completata"
+    assert save["rewards_obtained"] == []
+
+
+def test_ending_reached_valid_id():
+    char = _char()
+    save = new_game_save_data()
+    save["campaign_plan"] = {"endings": [{"id": "finale_vittoria", "title": "Vittoria"}]}
+    apply_effects(char, save, [{"type": "ending_reached", "target": "finale_vittoria"}])
+    assert save["ended"] is True
+    assert save["ending_id"] == "finale_vittoria"
+
+
+def test_ending_reached_unknown_id_is_rejected():
+    char = _char()
+    save = new_game_save_data()
+    save["campaign_plan"] = {"endings": [{"id": "finale_vittoria", "title": "Vittoria"}]}
+    apply_effects(char, save, [{"type": "ending_reached", "target": "finale_inventato"}])
+    assert save["ended"] is False
+    assert save["ending_id"] is None
+
+
+def test_hp_delta_damage_tracks_hp_lost_stat():
+    char = _char()
+    save = new_game_save_data()
+    apply_effects(char, save, [{"type": "hp_delta", "value": -4}])
+    assert save["stats"]["hp_lost"] == 4
+    apply_effects(char, save, [{"type": "hp_delta", "value": 2}])  # curare non conta come "perso"
+    assert save["stats"]["hp_lost"] == 4
+
+
+def test_item_remove_tracks_items_used_stat():
+    char = _char()
+    save = new_game_save_data()
+    apply_effects(char, save, [{"type": "item_add", "target": "pozione"}])
+    apply_effects(char, save, [{"type": "item_remove", "target": "pozione"}])
+    assert save["stats"]["items_used"] == 1
+
+
 def test_route_chosen():
     char = _char()
     save = new_game_save_data()

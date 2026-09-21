@@ -25,4 +25,6 @@ def new_game_save_data() -> dict:
         "daily_turn_date": None,
         "ended": False,
         "ending_id": None,
+        "rewards_obtained": [],
+        "stats": {"hp_lost": 0, "items_used": 0},
     }

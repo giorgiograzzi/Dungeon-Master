@@ -144,5 +144,6 @@ def compute_sheet(data: dict) -> dict:
         "conditions": data.get("conditions", []),
         "personal_details": data["personal_details"],
         "subclass_at_level": cls["subclass_level"],
+        "subclass_name": cls["subclass_name"] if level >= cls["subclass_level"] else None,
         "spellcasting": cls["spellcasting"],
     }

@@ -114,6 +114,46 @@ async def test_start_combat_effect_resolves_monster_turn_first_if_it_wins_initia
     assert char["hp_current"] <= hp_before  # il goblin ha potuto attaccare per primo
 
 
+async def test_pacing_context_is_sent_to_the_ai_when_a_campaign_is_active(setup):
+    char, sheet, save = setup
+    save["campaign_plan"] = {"duration_target": "breve"}
+    save["current_act"] = 1
+
+    captured_messages = []
+
+    class RecordingAIClient(FakeAIClient):
+        async def call_tool(self, *, model, system, messages, tool, max_tokens=1536):
+            captured_messages.append(list(messages))
+            return await super().call_tool(model=model, system=system, messages=messages, tool=tool, max_tokens=max_tokens)
+
+    await play_turn(
+        character_sheet=sheet, character_data=char, save_data=save,
+        action_text="Osservo la stanza", turn_id="pacing1", ai_client=RecordingAIClient(),
+        model="fake", system_prompt="", daily_cap=50,
+    )
+    first_call_messages = captured_messages[0]
+    assert len(first_call_messages) == 2
+    assert "[ritmo]" in first_call_messages[0]["content"]
+    assert first_call_messages[-1]["content"] == "Osservo la stanza"
+
+
+async def test_no_pacing_context_without_an_active_campaign(setup):
+    char, sheet, save = setup
+    captured_messages = []
+
+    class RecordingAIClient(FakeAIClient):
+        async def call_tool(self, *, model, system, messages, tool, max_tokens=1536):
+            captured_messages.append(list(messages))
+            return await super().call_tool(model=model, system=system, messages=messages, tool=tool, max_tokens=max_tokens)
+
+    await play_turn(
+        character_sheet=sheet, character_data=char, save_data=save,
+        action_text="Osservo la stanza", turn_id="nopacing", ai_client=RecordingAIClient(),
+        model="fake", system_prompt="", daily_cap=50,
+    )
+    assert captured_messages[0] == [{"role": "user", "content": "Osservo la stanza"}]
+
+
 async def test_effects_are_applied_to_character(setup):
     char, sheet, save = setup
 

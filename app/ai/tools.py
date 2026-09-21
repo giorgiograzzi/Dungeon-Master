@@ -7,7 +7,7 @@ EFFECT_TYPES = [
     "hp_delta", "temp_hp", "item_add", "item_remove", "condition_add", "condition_remove",
     "gold", "fact_add", "quest_update", "start_combat", "end_combat", "beat_progress",
     "side_quest_start", "side_quest_update", "side_quest_complete", "route_chosen",
-    "gate_solved", "npc_attitude", "npc_learned", "npc_status",
+    "gate_solved", "npc_attitude", "npc_learned", "npc_status", "ending_reached",
 ]
 
 EFFECT_SCHEMA = {

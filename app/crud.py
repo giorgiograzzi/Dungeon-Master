@@ -92,3 +92,16 @@ async def create_manual_save(session: AsyncSession, user: User, name: str, data:
     await session.commit()
     await session.refresh(save)
     return save
+
+
+async def load_save_into_autosave(session: AsyncSession, user: User, slot: str) -> GameSave:
+    """'Riavvolgi all'ultimo salvataggio' (§5): copia uno slot (di solito
+    manuale) nell'autosave, che diventa così la partita attiva."""
+    if slot == AUTOSAVE_SLOT:
+        raise ValueError("l'autosave è già la partita attiva")
+    result = await session.execute(select(GameSave).where(GameSave.user_id == user.id, GameSave.slot == slot))
+    source = result.scalar_one_or_none()
+    if source is None:
+        raise ValueError(f"nessun salvataggio nello slot {slot!r}")
+    autosave = await get_or_create_save(session, user)
+    return await save_game_data(session, autosave, dict(source.data))

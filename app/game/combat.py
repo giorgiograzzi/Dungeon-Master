@@ -249,10 +249,12 @@ def _damage_combatant(save_data: dict, combatant: dict, damage: int, critical: b
         result["death_save"] = outcome
     else:
         was_up = hp.current > 0
-        hp.apply_damage(damage)
-        if combatant["is_player"] and was_up and hp.current <= 0:
-            # Sceso a 0 PF ora: si riparte con tiri salvezza puliti.
-            save_data["combat"]["death_save"] = _death_save_to_dict(DeathSaveState())
+        real_damage = hp.apply_damage(damage)
+        if combatant["is_player"]:
+            save_data.setdefault("stats", {"hp_lost": 0, "items_used": 0})["hp_lost"] += real_damage
+            if was_up and hp.current <= 0:
+                # Sceso a 0 PF ora: si riparte con tiri salvezza puliti.
+                save_data["combat"]["death_save"] = _death_save_to_dict(DeathSaveState())
     combatant["hp"] = {"current": hp.current, "maximum": hp.maximum, "temp": hp.temp}
     return result
 

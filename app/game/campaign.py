@@ -3,6 +3,8 @@ giocatore, il codice ne espone solo un riepilogo senza spoiler e i bivi."""
 
 from __future__ import annotations
 
+import copy
+
 from app.ai.client import AIClient
 from app.ai.tools import GENERATE_CAMPAIGN_PLAN_TOOL, PRESENT_CROSSROADS_TOOL
 from rules.campaign import validate_campaign_plan
@@ -42,13 +44,15 @@ def public_campaign_summary(plan: dict, save_data: dict) -> dict:
         "premise": plan["premise"],
         "setting": plan["setting"],
         "duration_target": plan["duration_target"],
-        "current_objective": _current_objective(plan, save_data),
+        "current_objective": current_objective(plan, save_data),
         "turn_count": save_data.get("turn_count", 0),
         "mode": save_data.get("mode", "exploration"),
+        "current_act": save_data.get("current_act", 1),
+        "ended": save_data.get("ended", False),
     }
 
 
-def _current_objective(plan: dict, save_data: dict) -> str:
+def current_objective(plan: dict, save_data: dict) -> str:
     completed = set(save_data.get("completed_beats", []))
     route_id = save_data.get("current_route_id")
     for beat in plan.get("beats", []):
@@ -87,5 +91,35 @@ async def present_crossroads(
 
 
 def choose_route(save_data: dict, route_id: str) -> None:
+    idx = save_data.get("crossroads_resolved_count", 0)
+    _snapshot_before_crossroad(save_data, idx)
+
     save_data["current_route_id"] = route_id
-    save_data["crossroads_resolved_count"] = save_data.get("crossroads_resolved_count", 0) + 1
+    save_data["crossroads_resolved_count"] = idx + 1
+    # Bivio 1 superato -> si entra nell'Atto II, bivio 2 -> Atto III (§4/§5):
+    # il livello a milestone si aggancia a questo stesso avanzamento.
+    save_data["current_act"] = min(3, idx + 2)
+
+
+def _snapshot_before_crossroad(save_data: dict, crossroad_index: int) -> None:
+    """Salva lo stato subito prima di risolvere il bivio `crossroad_index`,
+    per poter poi 'Rigioca da un bivio' (§5) senza dover reimplementare un
+    sistema di versioning completo dei salvataggi."""
+    snapshot = {k: v for k, v in save_data.items() if k != "crossroad_snapshots"}
+    save_data.setdefault("crossroad_snapshots", {})[str(crossroad_index)] = copy.deepcopy(snapshot)
+
+
+def rewind_to_crossroad(save_data: dict, crossroad_index: int) -> dict:
+    """'Rigioca da un bivio': ripristina lo stato salvato subito prima di
+    aver risolto il bivio `crossroad_index` (0 = il primo), per provare un
+    percorso diverso. Richiede che quel bivio sia già stato risolto almeno
+    una volta (altrimenti non esiste alcuno snapshot da cui ripartire)."""
+    snapshots = save_data.get("crossroad_snapshots", {})
+    key = str(crossroad_index)
+    if key not in snapshots:
+        raise ValueError(f"nessuno snapshot disponibile per il bivio {crossroad_index}")
+    restored = copy.deepcopy(snapshots[key])
+    restored["crossroad_snapshots"] = snapshots
+    save_data.clear()
+    save_data.update(restored)
+    return save_data
