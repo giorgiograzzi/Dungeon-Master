@@ -5,7 +5,7 @@
     "primary_abilities": "Forza",
     "hit_die": "D12 per ogni livello da barbaro",
     "saving_throw_proficiencies": "Forza e Costituzione",
-    "skill_proficiencies": "Due a scelta tra: Addestrare Animali, Atletica, Intimi - dire, Natura, Percezione o Sopravvivenza",
+    "skill_proficiencies": "Due a scelta tra: Addestrare Animali, Atletica, Intimidire, Natura, Percezione o Sopravvivenza",
     "weapon_proficiencies": "Armi semplici e da guerra",
     "armor_proficiencies": "Armature leggere e medie; scudi",
     "starting_equipment": "A scelta tra A e B: (A) Un'ascia bipenne, 4 asce, una dotazione da esploratore e 15 mo; o (B) 75 mo",
@@ -176,14 +176,14 @@
     "skill_proficiencies": "Tre abilità a scelta (vedi \"Come si gioca\")",
     "weapon_proficiencies": "Armi semplici Competenze negli strumenti Tre strumenti musicali a scelta (vedi \"Equipaggiamento\")",
     "armor_proficiencies": "Armature leggere",
-    "starting_equipment": "A scelta tra A e B: (A) Un'arma- tura di cuoio, 2 pugnali, uno strumento musicale (a scelta), una dotazione da intratteni - tore e 19 mo; o (B) 90 mo",
+    "starting_equipment": "A scelta tra A e B: (A) Un'arma- tura di cuoio, 2 pugnali, uno strumento musicale (a scelta), una dotazione da intrattenitore e 19 mo; o (B) 90 mo",
     "spellcasting": true,
     "subclass_name": "Collegio della Sapienza",
     "subclass_level": 3,
     "level1_features": [
       {
         "name": "",
-        "text": "Un bardo può ispirare gli altri in maniera sopran - naturale tramite le parole, la musica o la danza. Questa ispirazione è rappresentata dal dado di Ispirazione bardica, un d6."
+        "text": "Un bardo può ispirare gli altri in maniera soprannaturale tramite le parole, la musica o la danza. Questa ispirazione è rappresentata dal dado di Ispirazione bardica, un d6."
       },
       {
         "name": "Utilizzare l'Ispirazione bardica",
@@ -321,7 +321,7 @@
     "primary_abilities": "Saggezza",
     "hit_die": "D8 per ogni livello da chierico",
     "saving_throw_proficiencies": "Saggezza e Carisma",
-    "skill_proficiencies": "Due a scelta tra: Intuizione, Medicina, Persuasione, Reli - gione o Storia",
+    "skill_proficiencies": "Due a scelta tra: Intuizione, Medicina, Persuasione, Religione o Storia",
     "weapon_proficiencies": "Armi semplici",
     "armor_proficiencies": "Armature leggere e medie; scudi",
     "starting_equipment": "A scelta tra A e B: (A) Un giaco di maglia, uno scudo, una mazza, un simbolo sacro, una dotazione da sacerdote e 7 mo; o (B) 110 mo",
@@ -331,11 +331,11 @@
     "level1_features": [
       {
         "name": "",
-        "text": "Il chierico impara a lanciare incantesimi attraverso la preghiera e la meditazione. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le informazioni sottostanti spiegano come applicarle agli incantesimi del chierico, elen - cati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
+        "text": "Il chierico impara a lanciare incantesimi attraverso la preghiera e la meditazione. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le informazioni sottostanti spiegano come applicarle agli incantesimi del chierico, elencati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
       },
       {
         "name": "Trucchetti",
-        "text": "Il chierico conosce tre trucchetti a scelta tratti dalla lista degli incantesimi da chierico. Sono consigliati guida, fiamma sacra e taumaturgia. Ogni volta che il personaggio ottiene un livello da chierico, può sostituire uno dei suoi trucchetti con un altro trucchetto a scelta dalla lista degli incante - simi da chierico. Quando il personaggio raggiunge il 4º e il 10º livello da chierico, impara un altro trucchetto a scelta dalla lista degli incantesimi da chierico, come indicato nella colonna Trucchetti della tabella"
+        "text": "Il chierico conosce tre trucchetti a scelta tratti dalla lista degli incantesimi da chierico. Sono consigliati guida, fiamma sacra e taumaturgia. Ogni volta che il personaggio ottiene un livello da chierico, può sostituire uno dei suoi trucchetti con un altro trucchetto a scelta dalla lista degli incantesimi da chierico. Quando il personaggio raggiunge il 4º e il 10º livello da chierico, impara un altro trucchetto a scelta dalla lista degli incantesimi da chierico, come indicato nella colonna Trucchetti della tabella"
       }
     ],
     "levels": [
@@ -463,7 +463,7 @@
     "level1_features": [
       {
         "name": "",
-        "text": "Il druido ha imparato a lanciare incantesimi attraverso lo studio delle forze mistiche della natura. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le infor - mazioni sottostanti spiegano come applicarle agli incantesimi del druido, elencati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
+        "text": "Il druido ha imparato a lanciare incantesimi attraverso lo studio delle forze mistiche della natura. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le informazioni sottostanti spiegano come applicarle agli incantesimi del druido, elencati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
       },
       {
         "name": "Trucchetti",
@@ -623,10 +623,10 @@
     "primary_abilities": "Forza o Destrezza",
     "hit_die": "D10 per ogni livello da guerriero",
     "saving_throw_proficiencies": "Forza e Costituzione",
-    "skill_proficiencies": "Due a scelta tra: Acrobazia, Addestrare animali, Atletica, Intimidire, Intuizione, Perce - zione, Persuasione, Sopravvi - venza o Storia",
+    "skill_proficiencies": "Due a scelta tra: Acrobazia, Addestrare animali, Atletica, Intimidire, Intuizione, Percezione, Persuasione, Sopravvivenza o Storia",
     "weapon_proficiencies": "Armi semplici e da guerra",
     "armor_proficiencies": "Armature leggere, medie e pesanti; scudi",
-    "starting_equipment": "A scelta tra, B e C: (A) Una cotta di maglia, uno spadone, un mazzafrusto, 8 giavellotti, una dotazione da avventuriero e 4 mo; o (B) un'armatura di cuoio borchiato, una scimi - tarra, una spada corta, un arco lungo, 20 frecce, una faretra, una dotazione da avventuriero e 11 mo; o (C) 155 mo",
+    "starting_equipment": "A scelta tra, B e C: (A) Una cotta di maglia, uno spadone, un mazzafrusto, 8 giavellotti, una dotazione da avventuriero e 4 mo; o (B) un'armatura di cuoio borchiato, una scimitarra, una spada corta, un arco lungo, 20 frecce, una faretra, una dotazione da avventuriero e 11 mo; o (C) 155 mo",
     "spellcasting": false,
     "subclass_name": "Campione",
     "subclass_level": 3,
@@ -794,7 +794,7 @@
     "skill_proficiencies": "Quattro a scelta tra: Acrobazia, Atletica, Furtività, Indagare, Inganno, Intimidire, Intuizione, Percezione, Persuasione o Rapidità di mano",
     "weapon_proficiencies": "Armi semplici e armi da guerra con la proprietà accurata o leggera Competenze negli strumenti Arnesi da scasso",
     "armor_proficiencies": "Armature leggere",
-    "starting_equipment": "A scelta tra A e B: (A) armatura di cuoio, 2 pugnali, spada corta, arco corto, 20 frecce, faretra, arnesi da scasso, dota - zione da scassinatore e 8 mo; o (B) 100 mo",
+    "starting_equipment": "A scelta tra A e B: (A) armatura di cuoio, 2 pugnali, spada corta, arco corto, 20 frecce, faretra, arnesi da scasso, dotazione da scassinatore e 8 mo; o (B) 100 mo",
     "spellcasting": false,
     "subclass_name": "Furfante",
     "subclass_level": 3,
@@ -1148,7 +1148,8 @@
         "proficiency_bonus": "+2",
         "features": [
           "Concentrazione da monaco",
-          "Metabolismo straordi -"
+          "Metabolismo straordinario",
+          "Movimento senza armatura"
         ]
       },
       {
@@ -1298,7 +1299,7 @@
     "primary_abilities": "Forza e Carisma",
     "hit_die": "D10 per ogni livello da paladino",
     "saving_throw_proficiencies": "Saggezza e Carisma",
-    "skill_proficiencies": "Due a scelta tra: Atletica, Inti - midire, Intuizione, Medicina, Persuasione o Religione",
+    "skill_proficiencies": "Due a scelta tra: Atletica, Intimidire, Intuizione, Medicina, Persuasione o Religione",
     "weapon_proficiencies": "Armi semplici e da guerra",
     "armor_proficiencies": "Armature leggere, medie e pesanti; scudi",
     "starting_equipment": "A scelta tra A e B: (A) cotta di maglia, scudo, spada lunga, 6 giavellotti, simbolo sacro, dotazione da sacerdote e 9 mo; o (B) 150 mo",
@@ -1474,7 +1475,7 @@
         "features": [
           "Incantesimi",
           "Nemico prescelto",
-          "Padro -"
+          "Padronanza d'armi"
         ]
       },
       {
@@ -1622,22 +1623,22 @@
     "skill_proficiencies": "Due a scelta tra: Arcano, Inganno, Intimidire, Intuizione, Persuasione o Religione",
     "weapon_proficiencies": "Armi semplici",
     "armor_proficiencies": "Nessuno",
-    "starting_equipment": "A scelta tra A e B: (A) lancia, 2 pugnali, focus arcano (cristallo), dotazione da avven - turiero e 28 mo; o (B) 50 mo",
+    "starting_equipment": "A scelta tra A e B: (A) lancia, 2 pugnali, focus arcano (cristallo), dotazione da avventuriero e 28 mo; o (B) 50 mo",
     "spellcasting": true,
     "subclass_name": "Stregoneria draconica",
     "subclass_level": 3,
     "level1_features": [
       {
         "name": "",
-        "text": "Attingendo alla propria magia innata, lo stregone è in grado di lanciare incantesimi. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le informazioni sottostanti spiegano come applicare tali regole agli incantesimi da stre - gone, elencati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
+        "text": "Attingendo alla propria magia innata, lo stregone è in grado di lanciare incantesimi. Consulta il capitolo \"Incantesimi\" per le regole relative al lancio degli incantesimi. Le informazioni sottostanti spiegano come applicare tali regole agli incantesimi da stregone, elencati nella relativa lista degli incantesimi più avanti nella descrizione della classe."
       },
       {
         "name": "Trucchetti",
-        "text": "Il personaggio conosce quattro trucchetti da stregone a scelta. Sono consigliati luce, prestidigitazione, stretta folgorante  e stregoneria esplosiva. Ogni volta che il personaggio ottiene un livello da stregone, può sostituire uno dei trucchetti di questo privilegio con un altro trucchetto a scelta. Dopo aver raggiunto il 4º e il 10º livello da stre - gone, il personaggio apprende un altro trucchetto a scelta, come mostrato nella colonna Trucchetti della tabella Privilegi dello stregone."
+        "text": "Il personaggio conosce quattro trucchetti da stregone a scelta. Sono consigliati luce, prestidigitazione, stretta folgorante  e stregoneria esplosiva. Ogni volta che il personaggio ottiene un livello da stregone, può sostituire uno dei trucchetti di questo privilegio con un altro trucchetto a scelta. Dopo aver raggiunto il 4º e il 10º livello da stregone, il personaggio apprende un altro trucchetto a scelta, come mostrato nella colonna Trucchetti della tabella Privilegi dello stregone."
       },
       {
         "name": "Slot incantesimo",
-        "text": "La tabella Privilegi dello stregone mostra gli slot incantesimo disponibili per i propri incantesimi di 1º livello o superiore. Tutti gli slot incantesimo consumati vengono ripristinati una volta completato un riposo lungo. Incantesimi preparati di 1º livello o superiore. Con questo privilegio, il personaggio prepara una lista di incantesimi di 1º livello o superiore che può lanciare. Per iniziare, sceglie due incantesimi da stregone di 1º livello. Sono consigliati mani brucianti e individuazione del magico. Il numero di incantesimi nella lista aumenta man mano che il personaggio ottiene livelli da stregone, come mostrato nella colonna Incantesimi preparati della tabella Privilegi dello stregone. Ogni volta che il numero cresce, lo stregone deve scegliere altri incantesimi finché il numero sulla lista non comba - cia con quello mostrato nella tabella Privilegi dello stregone. Gli incantesimi scelti devono essere di un livello di cui possiede degli slot incantesimo. Per esempio, nel caso di uno stregone di 3º livello, la sua lista di incantesimi preparati può includere sei incantesimi da stregone di 1º e 2º livello in qualsiasi combinazione. Se un altro privilegio dello stregone gli fornisce incantesimi che sono sempre preparati, questi non contano ai fini del numero di incantesimi preparabili con questo privilegio. Tuttavia, valgono comunque come incantesimi da stregone."
+        "text": "La tabella Privilegi dello stregone mostra gli slot incantesimo disponibili per i propri incantesimi di 1º livello o superiore. Tutti gli slot incantesimo consumati vengono ripristinati una volta completato un riposo lungo. Incantesimi preparati di 1º livello o superiore. Con questo privilegio, il personaggio prepara una lista di incantesimi di 1º livello o superiore che può lanciare. Per iniziare, sceglie due incantesimi da stregone di 1º livello. Sono consigliati mani brucianti e individuazione del magico. Il numero di incantesimi nella lista aumenta man mano che il personaggio ottiene livelli da stregone, come mostrato nella colonna Incantesimi preparati della tabella Privilegi dello stregone. Ogni volta che il numero cresce, lo stregone deve scegliere altri incantesimi finché il numero sulla lista non combacia con quello mostrato nella tabella Privilegi dello stregone. Gli incantesimi scelti devono essere di un livello di cui possiede degli slot incantesimo. Per esempio, nel caso di uno stregone di 3º livello, la sua lista di incantesimi preparati può includere sei incantesimi da stregone di 1º e 2º livello in qualsiasi combinazione. Se un altro privilegio dello stregone gli fornisce incantesimi che sono sempre preparati, questi non contano ai fini del numero di incantesimi preparabili con questo privilegio. Tuttavia, valgono comunque come incantesimi da stregone."
       },
       {
         "name": "Cambiare gli incantesimi preparati",
@@ -1783,7 +1784,7 @@
     "level1_features": [
       {
         "name": "",
-        "text": "Il warlock ha scoperto le Suppliche occulte, ovvero frammenti di conoscenze proibite che gli conferi - scono persistenti doti magiche o altre verità nasco - ste, tra cui la capacità di effettuare una supplica a scelta, come il Patto del Tomo. Per ulteriori dettagli sulle suppliche, consulta la sezione Opzioni di sup - pliche occulte dopo la descrizione di questa classe."
+        "text": "Il warlock ha scoperto le Suppliche occulte, ovvero frammenti di conoscenze proibite che gli conferiscono persistenti doti magiche o altre verità nascoste, tra cui la capacità di effettuare una supplica a scelta, come il Patto del Tomo. Per ulteriori dettagli sulle suppliche, consulta la sezione Opzioni di suppliche occulte dopo la descrizione di questa classe."
       },
       {
         "name": "Prerequisiti",

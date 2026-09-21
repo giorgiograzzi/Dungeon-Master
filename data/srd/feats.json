@@ -4,7 +4,7 @@
     "name_it": "Abile",
     "category": "Origini",
     "prerequisite": "",
-    "text": "Il personaggio ottiene competenza in una combina - zione di tre abilità o strumenti a scelta. Ripetibile. Questo talento è ottenibile più di una volta."
+    "text": "Il personaggio ottiene competenza in una combinazione di tre abilità o strumenti a scelta. Ripetibile. Questo talento è ottenibile più di una volta."
   },
   {
     "id": "aggressore_selvaggio",
@@ -18,28 +18,28 @@
     "name_it": "Allerta",
     "category": "Origini",
     "prerequisite": "",
-    "text": "Il personaggio ottiene i seguenti benefici. Competenza in iniziativa.  Quando tiri per l'ini - ziativa, puoi aggiungere il bonus di competenza del personaggio al risultato del tiro. Scambio di iniziativa. Subito dopo aver tirato per l'iniziativa, puoi scambiare il risultato ottenuto con quello di un alleato consenziente durante il mede - simo combattimento. Se il tuo personaggio o il suo alleato è incapacitato, non è possibile eseguire lo scambio."
+    "text": "Il personaggio ottiene i seguenti benefici. Competenza in iniziativa.  Quando tiri per l'iniziativa, puoi aggiungere il bonus di competenza del personaggio al risultato del tiro. Scambio di iniziativa. Subito dopo aver tirato per l'iniziativa, puoi scambiare il risultato ottenuto con quello di un alleato consenziente durante il medesimo combattimento. Se il tuo personaggio o il suo alleato è incapacitato, non è possibile eseguire lo scambio."
   },
   {
     "id": "iniziato_alla_magia",
     "name_it": "Iniziato alla magia",
     "category": "Origini",
     "prerequisite": "",
-    "text": "Il personaggio ottiene i seguenti benefici. Due trucchetti.  Il personaggio apprende due trucchetti a scelta tratti dalla lista degli incantesimi da chierico, druido o mago. La caratteristica da incantatore per gli incantesimi di questo talento può essere Intelligenza, Saggezza o Carisma (scegli la caratteristica quando ottieni questo talento). Incantesimo di 1º livello. Scegli un incantesimo di 1º livello dalla stessa lista da cui hai selezionato i trucchetti forniti da questo talento. Tale incante - simo è sempre considerato come preparato. Il per - sonaggio può lanciarlo una volta senza consumare uno slot incantesimo e ne recupera l'utilizzo in questo modo dopo aver completato un riposo lungo. Può anche lanciare l'incantesimo usando uno qual - siasi degli slot incantesimo a sua disposizione. Cambio incantesimo. Quando il personaggio ottiene un nuovo livello, puoi sostituire uno degli incantesimi scelti per questo talento con un altro dello stesso livello dalla lista prescelta. Ripetibile. Questo talento è ottenibile più di una volta, ma devi scegliere una lista degli incantesimi diversa a ogni selezione."
+    "text": "Il personaggio ottiene i seguenti benefici. Due trucchetti.  Il personaggio apprende due trucchetti a scelta tratti dalla lista degli incantesimi da chierico, druido o mago. La caratteristica da incantatore per gli incantesimi di questo talento può essere Intelligenza, Saggezza o Carisma (scegli la caratteristica quando ottieni questo talento). Incantesimo di 1º livello. Scegli un incantesimo di 1º livello dalla stessa lista da cui hai selezionato i trucchetti forniti da questo talento. Tale incantesimo è sempre considerato come preparato. Il personaggio può lanciarlo una volta senza consumare uno slot incantesimo e ne recupera l'utilizzo in questo modo dopo aver completato un riposo lungo. Può anche lanciare l'incantesimo usando uno qualsiasi degli slot incantesimo a sua disposizione. Cambio incantesimo. Quando il personaggio ottiene un nuovo livello, puoi sostituire uno degli incantesimi scelti per questo talento con un altro dello stesso livello dalla lista prescelta. Ripetibile. Questo talento è ottenibile più di una volta, ma devi scegliere una lista degli incantesimi diversa a ogni selezione."
   },
   {
     "id": "aumento_dei_punteggi_di_caratteristica",
     "name_it": "Aumento dei punteggi di caratteristica",
     "category": "Generali",
     "prerequisite": "prerequisito: 4º livello o superiore",
-    "text": "Aumenta un punteggio di caratteristica a sua scelta di 2, oppure aumenta due punteggi di caratteristica di 1. Questo talento non può incrementare un pun - teggio di caratteristica oltre il 20. Ripetibile. Questo talento è ottenibile più di una volta."
+    "text": "Aumenta un punteggio di caratteristica a sua scelta di 2, oppure aumenta due punteggi di caratteristica di 1. Questo talento non può incrementare un punteggio di caratteristica oltre il 20. Ripetibile. Questo talento è ottenibile più di una volta."
   },
   {
     "id": "lottatore",
     "name_it": "Lottatore",
     "category": "Generali",
     "prerequisite": "prerequisito: 4º livello o superiore, Forza o Destrezza 13 o superiore",
-    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica.  Il suo punteggio di Forza o Destrezza aumenta di 1, fino a un massimo di 20. Colpisci e afferra.  Quando il personaggio colpisce una creatura con un colpo senz'armi come parte di un'azione di Attacco nel proprio turno, può usare sia l'opzione Danni che Presa. Questo beneficio è utilizzabile una sola volta per turno. Attacco con vantaggio. Dispone di vantaggio ai tiri per colpire contro le creature che ha afferrato. Lottatore rapido. Il personaggio non deve spen - dere alcun movimento extra se sposta una creatura che ha afferrato che sia della sua stessa categoria di taglia o inferiore."
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica.  Il suo punteggio di Forza o Destrezza aumenta di 1, fino a un massimo di 20. Colpisci e afferra.  Quando il personaggio colpisce una creatura con un colpo senz'armi come parte di un'azione di Attacco nel proprio turno, può usare sia l'opzione Danni che Presa. Questo beneficio è utilizzabile una sola volta per turno. Attacco con vantaggio. Dispone di vantaggio ai tiri per colpire contro le creature che ha afferrato. Lottatore rapido. Il personaggio non deve spendere alcun movimento extra se sposta una creatura che ha afferrato che sia della sua stessa categoria di taglia o inferiore."
   },
   {
     "id": "combattere_con_armi_possenti",
@@ -60,7 +60,7 @@
     "name_it": "Difesa",
     "category": "Stile di combattimento",
     "prerequisite": "prerequisito: privilegio Stile di combattimento",
-    "text": "Finché il personaggio indossa un'armatura leg - gera, media o pesante, ottiene un +1 alla Classe Armatura."
+    "text": "Finché il personaggio indossa un'armatura leggera, media o pesante, ottiene un +1 alla Classe Armatura."
   },
   {
     "id": "tiro",
@@ -116,6 +116,6 @@
     "name_it": "Dono del viaggio dimensionale",
     "category": "Dono epico",
     "prerequisite": "prerequisito: 19º livello o superiore",
-    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica. Il punteggio di una sua caratteristica a scelta aumenta di 1, fino a un massimo di 30. Passi fulminei. Subito dopo che il personaggio effettua un'azione di Attacco o Magia, può teletra - sportarsi di massimo 9 metri in uno spazio libero che è in grado di vedere."
+    "text": "Il personaggio ottiene i seguenti benefici. Incremento dei punteggi di caratteristica. Il punteggio di una sua caratteristica a scelta aumenta di 1, fino a un massimo di 30. Passi fulminei. Subito dopo che il personaggio effettua un'azione di Attacco o Magia, può teletrasportarsi di massimo 9 metri in uno spazio libero che è in grado di vedere."
   }
 ]

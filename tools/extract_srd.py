@@ -48,8 +48,12 @@ def load_page_texts(pdf_path: str) -> list[str]:
     return [page.extract_text() or "" for page in reader.pages]
 
 
+HYPHEN_LINEBREAK_RE = re.compile(r"(\w+) -\n(\w+)")
+
+
 def strip_header(text: str) -> str:
-    """Rimuove l'intestazione ripetuta 'System Reference Document 5.2.1' + numero pagina."""
+    """Rimuove l'intestazione ripetuta 'System Reference Document 5.2.1' + numero
+    pagina, e riunisce le parole spezzate a fine riga (es. 'elen -\\nlencati')."""
     lines = [clean_line(line) for line in text.split("\n")]
     out = []
     for line in lines:
@@ -58,7 +62,7 @@ def strip_header(text: str) -> str:
         if re.fullmatch(r"\d{1,3}", line):
             continue
         out.append(line)
-    return "\n".join(out)
+    return HYPHEN_LINEBREAK_RE.sub(r"\1\2", "\n".join(out))
 
 
 def pages_text(pages: list[str], start_idx: int, end_idx: int) -> str:
