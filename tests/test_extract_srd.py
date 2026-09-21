@@ -89,6 +89,15 @@ def test_spells_include_known_ones(pages, toc):
     assert "Durata:" not in fireball["description"]
 
 
+def test_skills_are_the_full_srd_set(pages, toc):
+    skills = ex.extract_skills(pages, toc)
+    assert len(skills) == 18
+    by_name = {s["name_it"]: s["ability"] for s in skills}
+    assert by_name["Furtività"] == "des"
+    assert by_name["Sopravvivenza"] == "sag"
+    assert by_name["Addestrare animali"] == "sag"
+
+
 def test_monsters_known_stat_block(pages, toc):
     monsters = ex.extract_monsters(pages, toc)
     assert len(monsters) >= 250

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "acrobazia",
+    "name_it": "Acrobazia",
+    "ability": "des"
+  },
+  {
+    "id": "addestrare_animali",
+    "name_it": "Addestrare animali",
+    "ability": "sag"
+  },
+  {
+    "id": "arcano",
+    "name_it": "Arcano",
+    "ability": "int"
+  },
+  {
+    "id": "atletica",
+    "name_it": "Atletica",
+    "ability": "for"
+  },
+  {
+    "id": "furtivita",
+    "name_it": "Furtività",
+    "ability": "des"
+  },
+  {
+    "id": "indagare",
+    "name_it": "Indagare",
+    "ability": "int"
+  },
+  {
+    "id": "inganno",
+    "name_it": "Inganno",
+    "ability": "car"
+  },
+  {
+    "id": "intimidire",
+    "name_it": "Intimidire",
+    "ability": "car"
+  },
+  {
+    "id": "intrattenere",
+    "name_it": "Intrattenere",
+    "ability": "car"
+  },
+  {
+    "id": "intuizione",
+    "name_it": "Intuizione",
+    "ability": "sag"
+  },
+  {
+    "id": "medicina",
+    "name_it": "Medicina",
+    "ability": "sag"
+  },
+  {
+    "id": "natura",
+    "name_it": "Natura",
+    "ability": "int"
+  },
+  {
+    "id": "percezione",
+    "name_it": "Percezione",
+    "ability": "sag"
+  },
+  {
+    "id": "persuasione",
+    "name_it": "Persuasione",
+    "ability": "car"
+  },
+  {
+    "id": "rapidita_di_mano",
+    "name_it": "Rapidità di mano",
+    "ability": "des"
+  },
+  {
+    "id": "religione",
+    "name_it": "Religione",
+    "ability": "int"
+  },
+  {
+    "id": "sopravvivenza",
+    "name_it": "Sopravvivenza",
+    "ability": "sag"
+  },
+  {
+    "id": "storia",
+    "name_it": "Storia",
+    "ability": "int"
+  }
+]

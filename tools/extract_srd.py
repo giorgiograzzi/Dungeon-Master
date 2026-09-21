@@ -197,6 +197,60 @@ def extract_backgrounds(pages: list[str], toc: dict[str, int]) -> list[dict]:
     return backgrounds
 
 
+# --------------------------------------------------------------------------- abilità (skills)
+SKILL_ROW_RE = re.compile(
+    r"^([A-ZÀ-Ý][\wàèéìòù' ]+?)\s+(Forza|Destrezza|Costituzione|Intelligenza|Saggezza|Carisma)\s+(.+)$"
+)
+# "Furtività" e "Sopravvivenza" non compaiono come righe autonome nella tabella
+# "Abilità" (impaginata su due colonne che l'estrazione lineare mischia), ma la
+# loro caratteristica è comunque confermata testualmente altrove nello stesso
+# capitolo: "Effettui una prova di Destrezza (Furtività)" (azione Nascondersi)
+# e "prova di Saggezza (Intuizione, Medicina, Percezione o Sopravvivenza)"
+# (azione Ricerca). Le aggiungiamo qui per completare la lista ufficiale di 18.
+SKILLS_FALLBACK = {
+    "Furtività": "Destrezza",
+    "Sopravvivenza": "Saggezza",
+}
+
+
+def extract_skills(pages: list[str], toc: dict[str, int]) -> list[dict]:
+    start = toc["Come si gioca"] - 1
+    end = toc["Creazione del personaggio"] - 1
+    text = pages_text(pages, start, end)
+    lines = [clean_line(line) for line in text.split("\n") if clean_line(line)]
+    # "Addestrare animali" va a capo su due righe, separate dall'abilità/testo
+    # sulla riga successiva: le riunisce in un'unica riga "Nome Abilità testo".
+    for i, line in enumerate(lines[:-2]):
+        if line == "Addestrare" and lines[i + 1] == "animali":
+            lines[i] = f"Addestrare animali {lines[i + 2]}"
+            lines[i + 1] = lines[i + 2] = ""
+            break
+    lines = [line for line in lines if line]
+
+    skills: dict[str, str] = {}
+    for line in lines:
+        m = SKILL_ROW_RE.match(line)
+        # I nomi delle abilità sono corti (max 3 parole): scarta le frasi della
+        # tabella "Azioni" agganciate per coincidenza dallo stesso pattern
+        # (es. "Influenza Effettui una prova di Carisma...").
+        if m and len(m.group(1).split()) <= 3:
+            skills[m.group(1).strip()] = m.group(2)
+    for name, ability in SKILLS_FALLBACK.items():
+        skills.setdefault(name, ability)
+
+    ability_id = {
+        "Forza": "for", "Destrezza": "des", "Costituzione": "cos",
+        "Intelligenza": "int", "Saggezza": "sag", "Carisma": "car",
+    }
+    return sorted(
+        (
+            {"id": slugify(name), "name_it": name, "ability": ability_id[ability]}
+            for name, ability in skills.items()
+        ),
+        key=lambda s: s["name_it"],
+    )
+
+
 # --------------------------------------------------------------------------- classi
 CLASS_TABLE_LABELS = [
     "Caratteristiche primarie", "Dado Vita", "Competenze nei tiri salvezza",
@@ -778,6 +832,7 @@ def main(pdf_path: str, out_dir: str) -> None:
         "feats": extract_feats(pages, toc),
         "conditions": extract_conditions(pages, toc),
         "spells": extract_spells(pages, toc),
+        "skills": extract_skills(pages, toc),
         "monsters": extract_monsters(pages, toc),
     }
     equipment = extract_equipment(pdf_path, toc)
