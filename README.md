@@ -43,7 +43,7 @@ python tools/set_webhook.py
 pytest
 ```
 
-Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto), estrazione dei dati SRD (`tools/extract_srd.py`, con valori noti verificati), motore di regole (`rules/`): dadi con `secrets`, vantaggio/svantaggio e annullamento, tabella CD, modificatori e bonus di competenza, economia delle azioni, PF temporanei, costo d'uso oggetti, cambio arma, condizioni SRD, riposo; creazione del personaggio (`app/character/`): tutti gli step della procedura guidata validati contro i dati SRD, calcolo della scheda, **le 432 combinazioni specie×classe×background** create e verificate end-to-end, flusso completo via API, avvio robusto anche se il bot Telegram non risponde; narratore AI (`app/ai/`, `app/game/`): validazione del piano di campagna a grafo (percorsi, vicoli ciechi, gate, quest secondarie, indizi ridondanti), client AI finto (`DEV_FAKE_AI=1`), effetti di gioco, ciclo di turno idempotente, bivi, salvataggi — flusso completo verificato anche dal vivo in un browser (Playwright), non solo via API.
+Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto), estrazione dei dati SRD (`tools/extract_srd.py`, con valori noti verificati), motore di regole (`rules/`): dadi con `secrets`, vantaggio/svantaggio e annullamento, tabella CD, modificatori e bonus di competenza, economia delle azioni, PF temporanei, costo d'uso oggetti, cambio arma, condizioni SRD, riposo, attacchi/critici/iniziativa/tiri salvezza contro la morte; creazione del personaggio (`app/character/`): tutti gli step della procedura guidata validati contro i dati SRD, calcolo della scheda, **le 432 combinazioni specie×classe×background** create e verificate end-to-end, flusso completo via API, avvio robusto anche se il bot Telegram non risponde; narratore AI (`app/ai/`, `app/game/`): validazione del piano di campagna a grafo (percorsi, vicoli ciechi, gate, quest secondarie, indizi ridondanti), client AI finto (`DEV_FAKE_AI=1`), effetti di gioco, ciclo di turno idempotente, bivi, salvataggi; combattimento (`app/game/combat.py`, `app/api/combat_routes.py`): iniziativa, economia delle azioni per combattente, attacchi con critico, tiri salvezza contro la morte (incluso il danno subito a 0 PF e la morte istantanea per danno massiccio), attacchi di opportunità su reazione, turni dei mostri auto-risolti, cambio arma e uso oggetti dall'inventario — flusso completo verificato anche dal vivo in un browser (Playwright), non solo via API.
 
 ## Creazione del personaggio e scheda (`app/character/`)
 
@@ -57,6 +57,16 @@ Procedura guidata a 7 step (§4) esposta via `/api/character/*` e giocabile nell
 - `app/game/effects.py`: applica gli effetti proposti dall'AI (PF, oggetti, condizioni, oro, quest, PNG...) riusando il motore di regole della Fase 1 — l'AI propone, il codice valida e applica.
 - Bivi (`/api/game/crossroads`) presentati senza spoiler; salvataggi (`/api/game/saves*`) come documento JSON, autosave + 5 slot manuali.
 - Nella Mini App: tab **Scheda/Gioca** dopo la creazione, form di avvio campagna (ambientazione e durata), schermata di turno con dado animato (§7: il client non genera mai il numero che conta, solo l'animazione) e opzioni rapide.
+
+## Combattimento (`app/game/combat.py`, `app/api/combat_routes.py`)
+
+- `start_combat`: tira l'iniziativa per il PG e per ogni mostro (`data/srd/monsters.json`) e ordina i turni; se un mostro vince l'iniziativa, il suo turno viene risolto subito da `app/game/turn.py` (altrimenti il giocatore non avrebbe nulla da fare per proseguire).
+- Ogni combattente ha una propria `ActionEconomy` (Fase 1) serializzata nel salvataggio; `advance_turn` la rinnova a ogni turno (Reazione solo a ogni round) e salta i mostri già a 0 PF (un giocatore a 0 PF non si salta: resta in gioco per i tiri salvezza contro la morte).
+- Danni e morte: `player_attack`/i turni dei mostri applicano danno con critico (dadi raddoppiati, non il modificatore); un giocatore già a 0 PF che subisce altro danno tira un tiro salvezza contro la morte invece di un danno normale (o muore all'istante se il danno è pari o superiore ai PF massimi); a inizio turno un giocatore a 0 PF non stabile tira automaticamente il tiro salvezza (§8: non è una scelta).
+- Attacchi di opportunità: un mostro sotto un quarto dei PF offre al giocatore, se ha una Reazione libera, un attacco di opportunità (`check_flee_opportunity`/`resolve_reaction`).
+- Turni dei mostri: `run_monster_turns_until_player` risolve automaticamente ogni mostro (prima azione con attacco strutturato dello statblock, sempre contro il giocatore — semplificazione senza scelta tattica) finché non tocca di nuovo al giocatore o il combattimento finisce.
+- Cambio arma (`rules/weapon.py`, costo configurabile con `RULE_WEAPON_SWAP_COST`) e uso oggetti dall'inventario (`rules/items.py`, costo dedotto dal nome — le pozioni costano un'Azione Bonus per l'SRD, il resto un'Azione) sono API dedicate (`/api/game/combat/weapon-swap`, `/api/game/combat/item-use`).
+- Nella Mini App: tracker di combattimento con barre PF, bersagli, cambio arma, uso oggetti, prompt di reazione e messaggio dei tiri salvezza contro la morte quando il PG è a terra.
 
 ## Dati SRD (`data/srd/`)
 
@@ -96,7 +106,7 @@ tests/             pytest
 1. ✅ Dati SRD + rules engine
 2. ✅ Creazione personaggio
 3. ✅ Narratore AI, piano di campagna, turni, dadi animati, salvataggi
-4. ⏳ Combattimento
+4. ✅ Combattimento
 5. ⏳ Ritmo, bivi, finale
 6. ⏳ Asset definitivi, traduzioni, rifiniture
 

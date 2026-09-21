@@ -43,4 +43,13 @@ export const api = {
   crossroads: () => request("/api/game/crossroads"),
   chooseRoute: (route_id) =>
     request("/api/game/crossroads/choose", { method: "POST", body: JSON.stringify({ route_id }) }),
+  combatState: () => request("/api/game/combat"),
+  combatAttack: (target_id) =>
+    request("/api/game/combat/attack", { method: "POST", body: JSON.stringify({ target_id }) }),
+  combatReaction: (accept) =>
+    request("/api/game/combat/reaction", { method: "POST", body: JSON.stringify({ accept }) }),
+  combatAdvance: () => request("/api/game/combat/advance", { method: "POST" }),
+  combatWeaponSwap: (weapon_id) =>
+    request("/api/game/combat/weapon-swap", { method: "POST", body: JSON.stringify({ weapon_id }) }),
+  combatItemUse: (item) => request("/api/game/combat/item-use", { method: "POST", body: JSON.stringify({ item }) }),
 };

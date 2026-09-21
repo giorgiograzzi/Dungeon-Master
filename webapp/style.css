@@ -301,3 +301,64 @@ button.secondary {
   font-size: 0.9rem;
   color: var(--tg-theme-hint-color, #b8aed0);
 }
+
+#combatants {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.combatant {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.combatant-current {
+  border-color: var(--accent);
+}
+
+.combatant-down {
+  opacity: 0.55;
+}
+
+.combatant-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.hp-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: #3a3444;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.hp-bar-fill {
+  height: 100%;
+  background: #b3543f;
+  transition: width 0.2s ease;
+}
+
+.hp-label {
+  font-size: 0.8rem;
+  color: var(--tg-theme-hint-color, #b8aed0);
+}
+
+#targets {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.reaction-prompt {
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+}

@@ -18,6 +18,10 @@ export async function renderGame(container) {
     renderCampaignSetup(container);
     return;
   }
+  if (state.mode === "combat") {
+    await renderCombatScreen(container);
+    return;
+  }
   renderTurnScreen(container, state);
 }
 
@@ -83,6 +87,115 @@ function renderTurnScreen(container, state) {
     const actionText = document.getElementById("action").value;
     submitAction(container, actionText);
   });
+}
+
+function _hpBar(hp) {
+  const pct = Math.max(0, Math.round((hp.current / hp.maximum) * 100));
+  const tempLabel = hp.temp ? ` (+${hp.temp} temp)` : "";
+  return `
+    <div class="hp-bar"><div class="hp-bar-fill" style="width:${pct}%"></div></div>
+    <span class="hp-label">${hp.current}/${hp.maximum}${tempLabel} PF</span>
+  `;
+}
+
+async function renderCombatScreen(container, log = "") {
+  const state = await api.combatState();
+  if (!state.in_combat) {
+    await renderGame(container);
+    return;
+  }
+
+  const player = state.combatants.find((c) => c.is_player);
+  const isPlayerTurn = state.current_turn_id === "player";
+  const playerDown = player.hp.current <= 0;
+  const combatantsHtml = state.combatants
+    .map((c) => {
+      const current = c.id === state.current_turn_id ? " combatant-current" : "";
+      const down = c.hp.current <= 0 ? " combatant-down" : "";
+      return `
+        <div class="combatant${current}${down}">
+          <div class="combatant-name">${c.name}${c.id === state.current_turn_id ? " ⚔️" : ""}</div>
+          ${_hpBar(c.hp)}
+          <span class="hint">CA ${c.ac}</span>
+        </div>
+      `;
+    })
+    .join("");
+
+  const deathSaveHtml = state.death_save
+    ? `<p class="hint">A terra: tiri salvezza contro la morte — ${state.death_save.successes} success${state.death_save.successes === 1 ? "o" : "i"}, ${state.death_save.failures} fallim${state.death_save.failures === 1 ? "ento" : "enti"}${state.death_save.stable ? " · stabilizzato" : ""}</p>`
+    : "";
+
+  let actionsHtml = "";
+  if (state.pending_reaction) {
+    actionsHtml = `
+      <div class="reaction-prompt">
+        <p>${state.pending_reaction.description}</p>
+        <button id="reaction-accept">Attacca (Reazione)</button>
+        <button id="reaction-decline" class="secondary">Ignora</button>
+      </div>
+    `;
+  } else if (isPlayerTurn && playerDown) {
+    actionsHtml = `<button id="advance-btn" class="secondary" type="button">Termina il turno</button>`;
+  } else if (isPlayerTurn) {
+    const targets = state.combatants.filter((c) => !c.is_player && c.hp.current > 0);
+    const weaponOptions = state.available_weapons
+      .map((w) => `<option value="${w.id}" ${w.name_it === state.active_weapon ? "selected" : ""}>${w.name_it}</option>`)
+      .join("");
+    actionsHtml = `
+      <div class="field">
+        <label>Arma impugnata: ${state.active_weapon}</label>
+        ${state.available_weapons.length > 1 ? `<select id="weapon-select">${weaponOptions}</select><button id="weapon-swap-btn" class="secondary" type="button">Cambia arma</button>` : ""}
+      </div>
+      <div id="targets">
+        ${targets.map((t) => `<button class="target-btn" type="button" data-target="${t.id}">Attacca ${t.name}</button>`).join("")}
+      </div>
+      ${
+        state.inventory.length
+          ? `<div class="field"><label>Usa oggetto</label>
+             <select id="item-select">${state.inventory.map((i) => `<option value="${i}">${i}</option>`).join("")}</select>
+             <button id="item-use-btn" class="secondary" type="button">Usa</button></div>`
+          : ""
+      }
+      <button id="advance-btn" class="secondary" type="button">Termina il turno</button>
+    `;
+  } else {
+    actionsHtml = `<p class="hint">Il combattimento procede...</p>`;
+  }
+
+  container.innerHTML = `
+    <h2>Combattimento — Round ${state.round}</h2>
+    <div id="combatants">${combatantsHtml}</div>
+    ${deathSaveHtml}
+    ${log ? `<div id="combat-log"><p>${log}</p></div>` : ""}
+    ${actionsHtml}
+    <div id="combat-error"></div>
+  `;
+
+  document.querySelectorAll(".target-btn").forEach((btn) => {
+    btn.addEventListener("click", () => runCombatAction(container, () => api.combatAttack(btn.dataset.target)));
+  });
+  document.getElementById("advance-btn")?.addEventListener("click", () => runCombatAction(container, () => api.combatAdvance()));
+  document.getElementById("reaction-accept")?.addEventListener("click", () => runCombatAction(container, () => api.combatReaction(true)));
+  document.getElementById("reaction-decline")?.addEventListener("click", () => runCombatAction(container, () => api.combatReaction(false)));
+  document.getElementById("weapon-swap-btn")?.addEventListener("click", () => {
+    const weaponId = document.getElementById("weapon-select").value;
+    runCombatAction(container, () => api.combatWeaponSwap(weaponId));
+  });
+  document.getElementById("item-use-btn")?.addEventListener("click", () => {
+    const item = document.getElementById("item-select").value;
+    runCombatAction(container, () => api.combatItemUse(item));
+  });
+}
+
+async function runCombatAction(container, action) {
+  try {
+    await action();
+    await renderCombatScreen(container);
+  } catch (err) {
+    const errorBox = document.getElementById("combat-error");
+    if (errorBox) errorBox.innerHTML = `<p class="error">${err.message}</p>`;
+  }
 }
 
 async function submitAction(container, actionText) {
