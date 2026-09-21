@@ -1,30 +1,36 @@
-const tg = window.Telegram?.WebApp;
-const statusEl = document.getElementById("status");
+import { api, setInitData } from "./api.js";
+import { renderStep } from "./character.js";
 
-async function verify() {
+const tg = window.Telegram?.WebApp;
+const root = document.getElementById("app");
+
+async function boot() {
   if (!tg) {
-    statusEl.textContent = "Apri questa pagina dal bot Telegram per accedere.";
+    root.innerHTML = `<p id="status">Apri questa pagina dal bot Telegram per accedere.</p>`;
     return;
   }
   tg.ready();
   tg.expand();
+  setInitData(tg.initData);
 
   try {
-    const res = await fetch("/api/auth/verify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ init_data: tg.initData }),
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      statusEl.textContent = `Accesso negato: ${err.detail ?? res.status}`;
-      return;
-    }
-    const data = await res.json();
-    statusEl.textContent = `Ciao ${data.first_name ?? "avventuriero"}! Sei autenticato.`;
+    await api.verify(tg.initData);
   } catch (err) {
-    statusEl.textContent = "Impossibile contattare il server. Riprova.";
+    root.innerHTML = `<p id="status">Accesso negato: ${err.message}</p>`;
+    return;
+  }
+
+  await loadAndRender();
+}
+
+async function loadAndRender() {
+  root.innerHTML = `<p id="status">Carico il personaggio…</p>`;
+  try {
+    const [options, characterResponse] = await Promise.all([api.options(), api.character()]);
+    await renderStep(root, { options, character: characterResponse.data, reload: loadAndRender });
+  } catch (err) {
+    root.innerHTML = `<p id="status">Errore: ${err.message}</p>`;
   }
 }
 
-verify();
+boot();

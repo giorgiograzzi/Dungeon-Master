@@ -27,10 +27,17 @@ async def lifespan(app: FastAPI):
     app.state.telegram_app = None
     if settings.bot_token:
         application = build_application()
-        await application.initialize()
-        await application.start()
-        await configure_bot(application)
-        app.state.telegram_app = application
+        try:
+            await application.initialize()
+            await application.start()
+            await configure_bot(application)
+            app.state.telegram_app = application
+        except Exception:
+            # Telegram irraggiungibile o token non valido: l'API e la Mini App
+            # restano comunque disponibili (utile anche in sviluppo locale
+            # con un BOT_TOKEN segnaposto solo per firmare initData).
+            logger.exception("Inizializzazione del bot Telegram fallita: bot disabilitato per questa sessione.")
+            app.state.telegram_app = None
     else:
         logger.warning("BOT_TOKEN non impostato: bot Telegram disabilitato (solo API/Mini App attive).")
 

@@ -26,7 +26,9 @@ def _split_equipment_options(text: str) -> dict[str, str]:
     options: dict[str, str] = {}
     for i in range(1, len(parts), 2):
         letter, body = parts[i], parts[i + 1]
-        options[letter] = body.strip().rstrip(";").strip()
+        body = body.strip()
+        body = re.sub(r";?\s+o$", "", body)  # "...15 mo; o" -> "...15 mo" (congiunzione residua)
+        options[letter] = body.strip()
     return options
 
 

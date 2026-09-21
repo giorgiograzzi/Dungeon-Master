@@ -41,7 +41,11 @@ python tools/set_webhook.py
 pytest
 ```
 
-Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto), estrazione dei dati SRD (`tools/extract_srd.py`, con valori noti verificati) e motore di regole (`rules/`): dadi con `secrets`, vantaggio/svantaggio e annullamento, tabella CD, modificatori e bonus di competenza, economia delle azioni, PF temporanei, costo d'uso oggetti, cambio arma, condizioni SRD, riposo.
+Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto), estrazione dei dati SRD (`tools/extract_srd.py`, con valori noti verificati), motore di regole (`rules/`): dadi con `secrets`, vantaggio/svantaggio e annullamento, tabella CD, modificatori e bonus di competenza, economia delle azioni, PF temporanei, costo d'uso oggetti, cambio arma, condizioni SRD, riposo; creazione del personaggio (`app/character/`): tutti gli step della procedura guidata validati contro i dati SRD, calcolo della scheda, **le 432 combinazioni specie×classe×background** create e verificate end-to-end, flusso completo via API, avvio robusto anche se il bot Telegram non risponde.
+
+## Creazione del personaggio e scheda (`app/character/`)
+
+Procedura guidata a 7 step (§4) esposta via `/api/character/*` e giocabile nella Mini App: specie, classe (competenze ed equipaggiamento iniziale A/B/C), background (talento d'origine e competenze), punteggi di caratteristica (array standard, point buy 27 punti, 4d6 scarta il più basso — tirati dal server), bonus del background, dettagli personali, riepilogo. La scheda calcolata (`/api/character/sheet`) include CA, PF, iniziativa, bonus di competenza, tiri salvezza, le 18 abilità con bonus, percezione passiva, velocità, equipaggiamento e oro. Ogni chiamata valida `initData` (header `X-Telegram-Init-Data`).
 
 ## Dati SRD (`data/srd/`)
 
@@ -79,7 +83,7 @@ tests/             pytest
 
 0. ✅ Scaffold, config, DB, auth `initData`, bot `/start`/`/gioca`/`/aiuto`, deploy "hello", asset e `/galleria`
 1. ✅ Dati SRD + rules engine
-2. ⏳ Creazione personaggio
+2. ✅ Creazione personaggio
 3. ⏳ Narratore AI, piano di campagna, turni, dadi animati, salvataggi
 4. ⏳ Combattimento
 5. ⏳ Ritmo, bivi, finale
