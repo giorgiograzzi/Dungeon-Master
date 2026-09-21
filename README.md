@@ -29,6 +29,8 @@ uvicorn app.main:app --reload
 
 L'app risponde su `http://localhost:8000/` (Mini App), `/healthz` (stato) e `/telegram/webhook` (bot).
 
+Per provare il narratore senza una chiave Anthropic (o senza consumarne il credito), imposta `DEV_FAKE_AI=true` nel `.env`: le chiamate AI restituiscono risposte finte ma strutturalmente valide (piano di campagna incluso), sufficienti a giocare un turno completo con dadi e bivi.
+
 Per collegare davvero il bot Telegram, dopo aver esposto l'app pubblicamente (tunnel o deploy):
 
 ```bash
@@ -41,11 +43,20 @@ python tools/set_webhook.py
 pytest
 ```
 
-Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto), estrazione dei dati SRD (`tools/extract_srd.py`, con valori noti verificati), motore di regole (`rules/`): dadi con `secrets`, vantaggio/svantaggio e annullamento, tabella CD, modificatori e bonus di competenza, economia delle azioni, PF temporanei, costo d'uso oggetti, cambio arma, condizioni SRD, riposo; creazione del personaggio (`app/character/`): tutti gli step della procedura guidata validati contro i dati SRD, calcolo della scheda, **le 432 combinazioni specie×classe×background** create e verificate end-to-end, flusso completo via API, avvio robusto anche se il bot Telegram non risponde.
+Copertura attuale: validazione `initData` (firma, scadenza, manomissioni), endpoint `/healthz` e `/api/auth/verify` (creazione/riuso utente, filtro `ALLOWED_USER_IDS`), comando `/galleria` (album e messaggi di fallback), fumo sugli script di generazione asset e ritratti PNG (stesso seed → stesso volto), estrazione dei dati SRD (`tools/extract_srd.py`, con valori noti verificati), motore di regole (`rules/`): dadi con `secrets`, vantaggio/svantaggio e annullamento, tabella CD, modificatori e bonus di competenza, economia delle azioni, PF temporanei, costo d'uso oggetti, cambio arma, condizioni SRD, riposo; creazione del personaggio (`app/character/`): tutti gli step della procedura guidata validati contro i dati SRD, calcolo della scheda, **le 432 combinazioni specie×classe×background** create e verificate end-to-end, flusso completo via API, avvio robusto anche se il bot Telegram non risponde; narratore AI (`app/ai/`, `app/game/`): validazione del piano di campagna a grafo (percorsi, vicoli ciechi, gate, quest secondarie, indizi ridondanti), client AI finto (`DEV_FAKE_AI=1`), effetti di gioco, ciclo di turno idempotente, bivi, salvataggi — flusso completo verificato anche dal vivo in un browser (Playwright), non solo via API.
 
 ## Creazione del personaggio e scheda (`app/character/`)
 
 Procedura guidata a 7 step (§4) esposta via `/api/character/*` e giocabile nella Mini App: specie, classe (competenze ed equipaggiamento iniziale A/B/C), background (talento d'origine e competenze), punteggi di caratteristica (array standard, point buy 27 punti, 4d6 scarta il più basso — tirati dal server), bonus del background, dettagli personali, riepilogo. La scheda calcolata (`/api/character/sheet`) include CA, PF, iniziativa, bonus di competenza, tiri salvezza, le 18 abilità con bonus, percezione passiva, velocità, equipaggiamento e oro. Ogni chiamata valida `initData` (header `X-Telegram-Init-Data`).
+
+## Narratore AI, campagna e turni (`app/ai/`, `app/game/`)
+
+- `app/ai/client.py`: chiamate AI con tool use e schema forzato (`app/ai/tools.py`), prompt caching sul system prompt (`prompts/narrator_system_it.md`). Con `DEV_FAKE_AI=1` le risposte sono finte ma strutturalmente valide: è la modalità usata per sviluppare e testare senza consumare credito (nessuna chiave Anthropic era disponibile in questa sessione di sviluppo).
+- `rules/campaign.py`: valida il Piano di Campagna a grafo generato dall'AI — ogni percorso raggiunge il finale senza vicoli ciechi, ogni gate ha almeno 3 soluzioni, ogni scena è collegata a un beat o a una quest, le durate dei percorsi sono bilanciate, gli indizi sono ridondanti. Se il piano non è valido, viene rigenerato (fino a 3 tentativi).
+- `app/game/turn.py`: un turno = al massimo 2 chiamate AI (`request_check` poi `narrate_outcome`), con il codice che tira i dadi e confronta con la CD. Idempotente per `turn_id`: un refresh non ritira.
+- `app/game/effects.py`: applica gli effetti proposti dall'AI (PF, oggetti, condizioni, oro, quest, PNG...) riusando il motore di regole della Fase 1 — l'AI propone, il codice valida e applica.
+- Bivi (`/api/game/crossroads`) presentati senza spoiler; salvataggi (`/api/game/saves*`) come documento JSON, autosave + 5 slot manuali.
+- Nella Mini App: tab **Scheda/Gioca** dopo la creazione, form di avvio campagna (ambientazione e durata), schermata di turno con dado animato (§7: il client non genera mai il numero che conta, solo l'animazione) e opzioni rapide.
 
 ## Dati SRD (`data/srd/`)
 
@@ -84,7 +95,7 @@ tests/             pytest
 0. ✅ Scaffold, config, DB, auth `initData`, bot `/start`/`/gioca`/`/aiuto`, deploy "hello", asset e `/galleria`
 1. ✅ Dati SRD + rules engine
 2. ✅ Creazione personaggio
-3. ⏳ Narratore AI, piano di campagna, turni, dadi animati, salvataggi
+3. ✅ Narratore AI, piano di campagna, turni, dadi animati, salvataggi
 4. ⏳ Combattimento
 5. ⏳ Ritmo, bivi, finale
 6. ⏳ Asset definitivi, traduzioni, rifiniture

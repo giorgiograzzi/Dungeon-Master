@@ -37,4 +37,10 @@ export const api = {
   setBackgroundBonus: (bonus) =>
     request("/api/character/background-bonus", { method: "POST", body: JSON.stringify({ bonus }) }),
   setDetails: (payload) => request("/api/character/details", { method: "POST", body: JSON.stringify(payload) }),
+  gameState: () => request("/api/game"),
+  startCampaign: (payload) => request("/api/game/campaign", { method: "POST", body: JSON.stringify(payload) }),
+  playTurn: (payload) => request("/api/game/turn", { method: "POST", body: JSON.stringify(payload) }),
+  crossroads: () => request("/api/game/crossroads"),
+  chooseRoute: (route_id) =>
+    request("/api/game/crossroads/choose", { method: "POST", body: JSON.stringify({ route_id }) }),
 };

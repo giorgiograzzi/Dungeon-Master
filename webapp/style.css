@@ -218,3 +218,86 @@ button.secondary {
   font-size: 0.75rem;
   margin: 0 4px 4px 0;
 }
+
+.tabbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tab {
+  flex: 1;
+  margin-top: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--tg-theme-hint-color, #b8aed0);
+}
+
+.tab.active {
+  background: var(--accent);
+  color: #1a1408;
+  border-color: var(--accent);
+}
+
+#journal {
+  max-height: 40vh;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+#journal hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 10px 0;
+}
+
+#options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.option-btn {
+  width: auto;
+  margin-top: 0;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.dice-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 14, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dice-tray {
+  text-align: center;
+}
+
+.die-face {
+  width: 96px;
+  height: 96px;
+  line-height: 96px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--card-bg);
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  color: var(--accent);
+  margin: 0 auto 10px;
+}
+
+.die-face.settled {
+  background: var(--accent);
+  color: #1a1408;
+}
+
+.die-label {
+  font-size: 0.9rem;
+  color: var(--tg-theme-hint-color, #b8aed0);
+}
