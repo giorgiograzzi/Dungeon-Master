@@ -7,6 +7,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
+from app.api.character_routes import router as character_router
 from app.api.routes import router as api_router
 from app.config import settings
 from app.db import init_db
@@ -43,5 +44,6 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Dungeon Master Tascabile", lifespan=lifespan)
 app.include_router(api_router)
+app.include_router(character_router)
 app.include_router(webhook_router)
 app.mount("/", StaticFiles(directory=str(WEBAPP_DIR), html=True), name="webapp")
